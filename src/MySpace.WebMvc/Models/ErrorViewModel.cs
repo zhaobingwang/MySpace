@@ -1,6 +1,6 @@
 using System;
 
-namespace WebMvc.Models
+namespace MySpace.WebMvc.Models
 {
     public class ErrorViewModel
     {
