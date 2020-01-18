@@ -23,6 +23,7 @@ namespace WebMvc
 
         public IConfiguration Configuration { get; }
 
+        #region 开发环境
         public void ConfigureDevelopmentServices(IServiceCollection services)
         {
             ConfigureDevelopmentDatabases(services);
@@ -42,18 +43,24 @@ namespace WebMvc
             .AddIdentityCookies(o => { });
             #endregion
 
+            // Razor 文件编译
+            services.AddRazorPages().AddRazorRuntimeCompilation();
         }
         private void ConfigureDevelopmentDatabases(IServiceCollection services)
         {
             services.AddDbContext<AppIdentityDbContext>(c => c.UseSqlServer(Configuration.GetConnectionString("IdentityConncetion")));
             ConfigureServices(services);
         }
+        #endregion
 
+        #region 生产环境
         public void ConfigureProductionServices(IServiceCollection services)
         {
             services.AddDbContext<AppIdentityDbContext>(c => c.UseSqlServer(Configuration.GetConnectionString("IdentityConncetion")));
         }
+        #endregion
 
+        #region 默认
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -88,5 +95,6 @@ namespace WebMvc
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
+        #endregion
     }
 }
