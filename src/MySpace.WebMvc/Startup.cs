@@ -12,7 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MySpace.Infrastructure.Identity;
 
-namespace WebMvc
+namespace MySpace.WebMvc
 {
     public class Startup
     {
