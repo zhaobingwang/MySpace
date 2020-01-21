@@ -33,4 +33,4 @@ jobs:
         dotnet build src/MySpace.SDK --configuration Release
         dotnet nuget push src/MySpace.SDK/bin/Release/MySpace.*.nupkg -k ${APIKEY} -s https://www.nuget.org/api/v2/package
       env:
-        APIKEY: ${{ secrets.NuGetAPIKey }}
+        APIKEY: ${{ secrets.MySpaceNuGetAPIKey }}
