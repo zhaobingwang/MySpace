@@ -1,0 +1,36 @@
+name: MySpace.SDK Release
+
+on:
+  push:
+    branches: master
+
+jobs:
+  build:
+    name: Build Project MySpace.SDK
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.101
+    - name: Build with dotnet
+      run: dotnet build src/MySpace.SDK --configuration Release
+  
+  publish:
+    needs: [build]
+    name: Publish MySpace.SDK To NuGet
+    runs-on: [ubuntu-latest]
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.101
+    - name: Publish
+      run: |
+        dotnet build src/MySpace.SDK --configuration Release
+        dotnet nuget push src/MySpace.SDK/bin/Release/MySpace.*.nupkg -k ${APIKEY} -s https://www.nuget.org/api/v2/package
+      env:
+        APIKEY: ${{ secrets.NuGetAPIKey }}
