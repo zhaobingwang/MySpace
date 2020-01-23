@@ -1,0 +1,36 @@
+name: MySpace.Utilities Release
+
+on:
+  push:
+    branches: release/utilities
+
+jobs:
+  build:
+    name: Build Project MySpace.Utilities
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.101
+    - name: Build with dotnet
+      run: dotnet build src/MySpace.Utilities --configuration Release
+  
+  publish:
+    needs: [build]
+    name: Publish MySpace.Utilities To NuGet
+    runs-on: [ubuntu-latest]
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.101
+    - name: Publish
+      run: |
+        dotnet build src/MySpace.Utilities --configuration Release
+        dotnet nuget push src/MySpace.Utilities/bin/Release/MySpace.Utilities.*.nupkg -k ${APIKEY} -s https://www.nuget.org/api/v2/package
+      env:
+        APIKEY: ${{ secrets.MySpaceNuGetAPIKey }}
