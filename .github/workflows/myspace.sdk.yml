@@ -2,7 +2,7 @@ name: MySpace.SDK Release
 
 on:
   push:
-    branches: master
+    branches: release/sdk
 
 jobs:
   build:
