@@ -26,6 +26,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MySpace.WebMvc", "src\MySpa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MySpace.SDK", "src\MySpace.SDK\MySpace.SDK.csproj", "{6EC37ECF-7A8E-455C-B1D4-E49878CD9519}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MySpace.SDK.IntegrationTests", "tests\MySpace.SDK.IntegrationTests\MySpace.SDK.IntegrationTests.csproj", "{852F21CF-C46A-4CE6-B1DF-3330DEE48428}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,6 +62,10 @@ Global
 		{6EC37ECF-7A8E-455C-B1D4-E49878CD9519}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EC37ECF-7A8E-455C-B1D4-E49878CD9519}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EC37ECF-7A8E-455C-B1D4-E49878CD9519}.Release|Any CPU.Build.0 = Release|Any CPU
+		{852F21CF-C46A-4CE6-B1DF-3330DEE48428}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{852F21CF-C46A-4CE6-B1DF-3330DEE48428}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{852F21CF-C46A-4CE6-B1DF-3330DEE48428}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{852F21CF-C46A-4CE6-B1DF-3330DEE48428}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,6 +78,7 @@ Global
 		{4C3C2DDB-753E-49B7-B298-EA21A96B4DA4} = {B31C70DA-36C0-4AAF-BEE2-EE7F6CAB97B3}
 		{4EBC0216-A5CD-47BA-918B-91262D6EDF00} = {B31C70DA-36C0-4AAF-BEE2-EE7F6CAB97B3}
 		{6EC37ECF-7A8E-455C-B1D4-E49878CD9519} = {B31C70DA-36C0-4AAF-BEE2-EE7F6CAB97B3}
+		{852F21CF-C46A-4CE6-B1DF-3330DEE48428} = {0B57F095-BBE7-424B-BFD0-59897E44BAAA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4D172977-1FCF-457F-874E-7C5A07CDE945}
