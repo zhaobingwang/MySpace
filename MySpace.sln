@@ -28,9 +28,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MySpace.SDK", "src\MySpace.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MySpace.SDK.IntegrationTests", "tests\MySpace.SDK.IntegrationTests\MySpace.SDK.IntegrationTests.csproj", "{852F21CF-C46A-4CE6-B1DF-3330DEE48428}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySpace.Utilities", "src\MySpace.Utilities\MySpace.Utilities.csproj", "{D55D03B2-1972-41CC-93F0-10C01CFA7453}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MySpace.Utilities", "src\MySpace.Utilities\MySpace.Utilities.csproj", "{D55D03B2-1972-41CC-93F0-10C01CFA7453}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySpace.Utilities.UnitTests", "tests\MySpace.Utilities.UnitTests\MySpace.Utilities.UnitTests.csproj", "{CBC70571-D24A-4041-8071-6A9459FC91C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MySpace.Utilities.UnitTests", "tests\MySpace.Utilities.UnitTests\MySpace.Utilities.UnitTests.csproj", "{CBC70571-D24A-4041-8071-6A9459FC91C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
