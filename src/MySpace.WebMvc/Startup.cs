@@ -10,7 +10,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MySpace.ApplicationCore.Interfaces;
+using MySpace.Infrastructure.Data;
 using MySpace.Infrastructure.Identity;
+using MySpace.Infrastructure.Logging;
 
 namespace MySpace.WebMvc
 {
@@ -59,8 +62,11 @@ namespace MySpace.WebMvc
         public void CommonConfigureService(IServiceCollection services)
         {
             services.AddDbContext<AppIdentityDbContext>(c => c.UseSqlServer(Configuration.GetConnectionString("IdentityConncetion")));
+            services.AddDbContext<MySpaceDbContext>(c => c.UseSqlServer(Configuration.GetConnectionString("AppConncetion")));
 
             ConfigureIdentityService(services);
+
+            services.AddScoped(typeof(IAppLogger<>), typeof(LoggerAdapter<>));
         }
 
         /// <summary>

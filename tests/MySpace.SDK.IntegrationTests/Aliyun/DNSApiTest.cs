@@ -22,12 +22,12 @@ namespace MySpace.SDK.IntegrationTests.Aliyun
             accessKeyId = config.GetSection("Aliyun:DNS:AccessKeyId").Value;
             accessSecret = config.GetSection("Aliyun:DNS:AccessSecret").Value;
         }
-        [Fact]
-        public void GetDomainRecordsShouldSuccess()
-        {
-            DNSApi dnsApi = new DNSApi(accessKeyId, accessSecret);
-            var result = dnsApi.GetDomainRecords("", 1);
-            Assert.NotNull(result);
-        }
+        //[Fact]
+        //public void GetDomainRecordsShouldSuccess()
+        //{
+        //    DNSApi dnsApi = new DNSApi(accessKeyId, accessSecret);
+        //    var result = dnsApi.GetDomainRecords("", 1);
+        //    Assert.NotNull(result);
+        //}
     }
 }

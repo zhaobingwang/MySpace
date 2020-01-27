@@ -104,5 +104,21 @@ namespace MySpace.WebMvc
                 }
             }
         }
+
+        public static void EnsureSeedAppData(string connectionString)
+        {
+            var services = new ServiceCollection();
+            services.AddDbContext<AppIdentityDbContext>(options =>
+            {
+                options.UseSqlServer(connectionString);
+            });
+            using (var serviceProvider = services.BuildServiceProvider())
+            {
+                using (var scope = serviceProvider.GetRequiredService<IServiceScopeFactory>().CreateScope())
+                {
+
+                }
+            }
+        }
     }
 }

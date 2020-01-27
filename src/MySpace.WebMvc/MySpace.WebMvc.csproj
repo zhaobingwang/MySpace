@@ -22,6 +22,7 @@
   <ItemGroup>
     <ProjectReference Include="..\MySpace.ApplicationCore\MySpace.ApplicationCore.csproj" />
     <ProjectReference Include="..\MySpace.Infrastructure\MySpace.Infrastructure.csproj" />
+    <ProjectReference Include="..\MySpace.Utilities\MySpace.Utilities.csproj" />
   </ItemGroup>
 
 
