@@ -10,7 +10,7 @@ using MySpace.WebMvc.Models;
 
 namespace MySpace.WebMvc.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

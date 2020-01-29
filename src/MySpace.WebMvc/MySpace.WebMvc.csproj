@@ -25,6 +25,11 @@
     <ProjectReference Include="..\MySpace.Utilities\MySpace.Utilities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Console\Data\" />
+    <Folder Include="Areas\Console\Models\" />
+  </ItemGroup>
+
 
 
 </Project>
