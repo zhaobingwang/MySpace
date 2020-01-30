@@ -11,6 +11,7 @@ namespace MySpace.WebMvc.Areas.Console.Controllers
     {
         public IActionResult Index()
         {
+            
             return View();
         }
     }

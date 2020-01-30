@@ -30,6 +30,10 @@
     <Folder Include="Areas\Console\Models\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\img\avatar.jpg" />
+  </ItemGroup>
+
 
 
 </Project>
