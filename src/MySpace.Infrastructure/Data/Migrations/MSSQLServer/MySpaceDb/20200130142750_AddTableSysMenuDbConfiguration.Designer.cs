@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MySpace.Infrastructure.Data;
 
 namespace MySpace.Infrastructure.Data.Migrations.MSSQLServer.MySpaceDb
 {
     [DbContext(typeof(MySpaceDbContext))]
-    partial class MySpaceDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200130142750_AddTableSysMenuDbConfiguration")]
+    partial class AddTableSysMenuDbConfiguration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

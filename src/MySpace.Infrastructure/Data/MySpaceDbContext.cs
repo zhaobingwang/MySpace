@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MySpace.ApplicationCore.Entities.MenuAggregate;
 using MySpace.ApplicationCore.Entities.TPAppsAggregate;
 using System.Reflection;
 
@@ -12,6 +13,8 @@ namespace MySpace.Infrastructure.Data
         }
         public DbSet<TPApp> Apps { get; set; }
         public DbSet<TPAppPassword> AppPasswords { get; set; }
+
+        public DbSet<Menu> Menus { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

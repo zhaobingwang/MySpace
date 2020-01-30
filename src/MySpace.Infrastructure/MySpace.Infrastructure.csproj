@@ -18,8 +18,4 @@
     <ProjectReference Include="..\MySpace.ApplicationCore\MySpace.ApplicationCore.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Data\Migrations\" />
-  </ItemGroup>
-
 </Project>
