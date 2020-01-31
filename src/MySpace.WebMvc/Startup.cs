@@ -113,6 +113,8 @@ namespace MySpace.WebMvc
                 o.DefaultSignInScheme = IdentityConstants.ExternalScheme;
             })
             .AddIdentityCookies(o => { });
+
+            services.AddScoped<IMenuRepository, MenuRepository>();
         }
         #endregion
 

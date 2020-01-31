@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using MySpace.ApplicationCore.Entities.MenuAggregate;
+using MySpace.ApplicationCore.Interfaces;
 
 namespace MySpace.WebMvc.Areas.Console.Controllers
 {
@@ -11,9 +13,15 @@ namespace MySpace.WebMvc.Areas.Console.Controllers
     [Area("Console")]
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly IMenuRepository _menuRepository;
+        public HomeController(IMenuRepository menuRepository)
         {
-            return View();
+            _menuRepository = menuRepository;
+        }
+        public async Task<IActionResult> Index()
+        {
+            var menus = await _menuRepository.ListAllAsync();
+            return View(menus);
         }
     }
 }

@@ -9,5 +9,6 @@ namespace MySpace.ApplicationCore.Interfaces
     public interface IRepository<T> where T : BaseEntity, IAggregateRoot
     {
         Task<T> AddAsync(T entity);
+        Task<IReadOnlyList<T>> ListAllAsync();
     }
 }

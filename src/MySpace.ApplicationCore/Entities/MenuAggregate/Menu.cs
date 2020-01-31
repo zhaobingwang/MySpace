@@ -1,12 +1,12 @@
-﻿using System;
+﻿using MySpace.ApplicationCore.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace MySpace.ApplicationCore.Entities.MenuAggregate
 {
-    public class Menu
+    public class Menu : BaseEntity, IAggregateRoot
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Remark { get; set; }
         public int ParentId { get; set; }

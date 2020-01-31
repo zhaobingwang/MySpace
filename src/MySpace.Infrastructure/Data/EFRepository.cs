@@ -1,4 +1,5 @@
-﻿using MySpace.ApplicationCore.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using MySpace.ApplicationCore.Entities;
 using MySpace.ApplicationCore.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,11 @@ namespace MySpace.Infrastructure.Data
             await _dbContext.Set<T>().AddAsync(entity);
             await _dbContext.SaveChangesAsync();
             return entity;
+        }
+
+        public async Task<IReadOnlyList<T>> ListAllAsync()
+        {
+            return await _dbContext.Set<T>().ToListAsync();
         }
     }
 }

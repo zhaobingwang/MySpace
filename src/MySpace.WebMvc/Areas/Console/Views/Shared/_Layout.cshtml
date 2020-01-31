@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@using MySpace.ApplicationCore.Entities.MenuAggregate
+@using System.Collections.Generic
+@model IReadOnlyList<Menu>
+@{
+    var menu1List = Model.Where(m => m.ParentId == 0);
+    var menu2List = Model.Where(m => m.ParentId != 0);
+}
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -34,31 +41,47 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="active">
-                        <a href="#">
-                            <i class="fa fa-th-large"></i>
-                            <span class="nav-label">菜单1</span>
-                            <span class="fa arrow"></span>
-                        </a>
-                        <ul class="nav nav-second-level">
-                            <li class="active">
-                                <a href="#">菜单1-1</a>
-                            </li>
-                            <li><a href="#">菜单1-2</a></li>
-                            <li><a href="#">菜单1-3</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-bar-chart-o"></i>
-                            <span class="nav-label">菜单2</span>
-                            <span class="fa arrow"></span>
-                        </a>
-                        <ul class="nav nav-second-level collapse">
-                            <li><a href="#">菜单2-1</a></li>
-                            <li><a href="#">菜单2-2</a></li>
-                        </ul>
-                    </li>
+                    @foreach (var menu1 in menu1List)
+                    {
+                        <li>
+                            <a href="#">
+                                <i class="@menu1.Icon"></i>
+                                <span class="nav-label">@menu1.Name</span>
+                                <span class="fa arrow"></span>
+                            </a>
+                            <ul class="nav nav-second-level collapse">
+                                @foreach (var menu2 in menu2List)
+                                {
+                                    <li><a href="#">@menu2.Name</a></li>
+                                }
+                            </ul>
+                        </li>
+                    }
+                    @*<li class="active">
+                            <a href="#">
+                                <i class="fa fa-th-large"></i>
+                                <span class="nav-label">菜单1</span>
+                                <span class="fa arrow"></span>
+                            </a>
+                            <ul class="nav nav-second-level">
+                                <li class="active">
+                                    <a href="#">菜单1-1</a>
+                                </li>
+                                <li><a href="#">菜单1-2</a></li>
+                                <li><a href="#">菜单1-3</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-bar-chart-o"></i>
+                                <span class="nav-label">菜单2</span>
+                                <span class="fa arrow"></span>
+                            </a>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a href="#">菜单2-1</a></li>
+                                <li><a href="#">菜单2-2</a></li>
+                            </ul>
+                        </li>*@
                 </ul>
             </div>
         </nav>
