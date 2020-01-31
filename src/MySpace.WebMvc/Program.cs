@@ -7,20 +7,35 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using MySpace.Infrastructure.Data;
 
 namespace MySpace.WebMvc
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public async static Task Main(string[] args)
         {
             var host = CreateHostBuilder(args).Build();
 
-            var config = host.Services.GetRequiredService<IConfiguration>();
-            var identityConnectionString = config.GetConnectionString("IdentityConncetion");
+            using (var scope = host.Services.CreateScope())
+            {
+                var service = scope.ServiceProvider;
+                var loggerFactory = service.GetRequiredService<ILoggerFactory>();
+                var config = host.Services.GetRequiredService<IConfiguration>();
+                var identityConnectionString = config.GetConnectionString("IdentityConncetion");
+                try
+                {
+                    SeedData.EnsureSeedIdentityData(identityConnectionString);
 
-            // 播种默认用户数据
-            SeedData.EnsureSeedIdentityData(identityConnectionString);
+                    var mySpaceDbContext = service.GetRequiredService<MySpaceDbContext>();
+                    await MySpaceDbContextSeed.SeedDataAsync(mySpaceDbContext, loggerFactory);
+                }
+                catch (Exception ex)
+                {
+                    var logger = loggerFactory.CreateLogger<Program>();
+                    logger.LogError(ex, "An error occurred seeding the DB.");
+                }
+            }
 
             host.Run();
         }
