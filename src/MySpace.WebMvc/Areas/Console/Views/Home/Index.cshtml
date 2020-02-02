@@ -1,7 +1,234 @@
 ﻿
 @{
     ViewData["Title"] = "Console Index";
+    Layout = "_HomeLayout";
+}
+@using MySpace.ApplicationCore.Entities.MenuAggregate
+@using MySpace.Infrastructure.Identity
+@using System.Collections.Generic
+@model IReadOnlyList<Menu>
+@{
+    var menu1List = Model.Where(m => m.ParentId == 0);
+    var menu2List = Model.Where(m => m.ParentId != 0);
 }
 
-<h1>Console Index</h1>
+<div id="wrapper" class="Main">
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element">
+                        <img alt="image" style="width:48px;height:48px" class="rounded-circle" src="~/img/avatar.jpg" />
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            @*<span class="block m-t-xs font-bold">@User.Identity.Name</span>*@
+                            <span class="text-muted text-xs block">@User.Identity.Name <b class="caret"></b></span>
+                        </a>
+                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                            <li>
+                                <a class="dropdown-item" href="">资料</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="">邮箱</a>
+                            </li>
+                            <li class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">退出</a></li>
+                        </ul>
+                    </div>
+                </li>
+                @foreach (var menu1 in menu1List)
+                {
+                    <li>
+                        <a href="@menu1.Url">
+                            <i class="@menu1.Icon"></i>
+                            <span class="nav-label">@menu1.Name</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level collapse">
+                            @foreach (var menu2 in menu2List)
+                            {
+                                <li><a class="menu-item" href="@menu2.Url">@menu2.Name</a></li>
+                            }
+                        </ul>
+                    </li>
+                }
+            </ul>
+        </div>
+    </nav>
 
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                    <form role="search" class="navbar-form-custom" action="">
+                        <div class="form-group">
+                            <input type="text" placeholder="在此输入进行查询..." class="form-control" name="top-search" id="top-search">
+                        </div>
+                    </form>
+                </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                            <i class="fa fa-envelope"></i>
+                            <span class="label label-warning">16</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-messages dropdown-menu-right">
+                            <li>
+                                <div class="dropdown-messages-box">
+                                    <a class="dropdown-item float-left" href="#">
+                                        <img alt="image" class="rounded-circle" src="~/img/avatar.jpg">
+                                    </a>
+                                    <div class="media-body">
+                                        <small class="float-right">
+                                            50小时前
+                                        </small>
+                                        <strong>诸葛亮</strong> 关注了 <strong>刘备</strong>. <br>
+                                        <small class="text-muted">3天前 上午9:12 - 2020年1月27日</small>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="dropdown-divider"></li>
+                            <li>
+                                <div class="dropdown-messages-box">
+                                    <a class="dropdown-item float-left" href="#">
+                                        <img alt="image" class="rounded-circle" src="~/img/avatar.jpg">
+                                    </a>
+                                    <div class="media-body ">
+                                        <small class="float-right text-navy">
+                                            30小时前
+                                        </small>
+                                        <strong>周瑜</strong> 关注了 <strong>孙策</strong>. <br>
+                                        <small class="text-muted">
+                                            前天 下午 15:12 - 2020年1月28日
+                                        </small>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="dropdown-divider"></li>
+                            <li>
+                                <div class="dropdown-messages-box">
+                                    <a class="dropdown-item float-left" href="#">
+                                        <img alt="image" class="rounded-circle" src="~/img/avatar.jpg">
+                                    </a>
+                                    <div class="media-body ">
+                                        <small class="float-right">10小时前</small>
+                                        <strong>司马懿</strong> 赞了 <strong>操作</strong>. <br>
+                                        <small class="text-muted">10小时前 3:20 上午 - 2020年1月30日</small>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="dropdown-divider"></li>
+                            <li>
+                                <div class="text-center link-block">
+                                    <a href="#" class="dropdown-item">
+                                        <i class="fa fa-envelope"></i> <strong>查看所有消息</strong>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                            <i class="fa fa-bell"></i>  <span class="label label-primary">8</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-alerts">
+                            <li>
+                                <a href="" class="dropdown-item">
+                                    <div>
+                                        <i class="fa fa-envelope fa-fw"></i>
+                                        你有16条消息
+                                        <span class="float-right text-muted small">4分钟前</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="dropdown-divider"></li>
+                            <li>
+                                <a href="" class="dropdown-item">
+                                    <div>
+                                        <i class="fa fa-twitter fa-fw"></i>
+                                        新增三个粉丝
+                                        <span class="float-right text-muted small">
+                                            10分钟前
+                                        </span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="dropdown-divider"></li>
+                            <li>
+                                <a href="" class="dropdown-item">
+                                    <div>
+                                        <i class="fa fa-upload fa-fw"></i>
+                                        服务器重启
+                                        <span class="float-right text-muted small">20分钟前</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="dropdown-divider"></li>
+                            <li>
+                                <div class="text-center link-block">
+                                    <a href="" class="dropdown-item">
+                                        <strong>查看所有通知</strong>
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-sign-out"></i>
+                            退出
+                        </a>
+                    </li>
+                    <li>
+                        <a class="right-sidebar-toggle">
+                            <i class="fa fa-tasks"></i>
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+
+
+        </div>
+
+        <div class="row content-tabs">
+            <button class="roll-nav roll-left tab-left">
+                <i class="fa fa-backward"></i>
+            </button>
+            <nav class="page-tabs menu-tabs">
+                <div class="page-tabs-content">
+                    <a href="javascript:;" class="active menu-tab" data-id="https://cn.bing.com">首页</a>
+                </div>
+            </nav>
+            <button class="roll-nav roll-right tab-right">
+                <i class="fa fa-forward"></i>
+            </button>
+            <div class="btn-group roll-nav roll-right">
+                <button class="dropdown tab_close" data-toggle="dropdown">
+                    关闭操作<span class="caret"></span>
+
+                </button>
+                <ul role="menu" class="dropdown-menu dropdown-menu-right">
+                    <li class="tab-show-active">
+                        <a>定位当前选项卡</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li class="tab-close-all">
+                        <a>关闭全部选项卡</a>
+                    </li>
+                    <li class="tab-close-other">
+                        <a>关闭其他选项卡</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row main-content" id="content-main">
+            <iframe class="menu-iframe" name="iframe0" style="position: absolute; height: 100%;width:100%; border: none" src="https://cn.bing.com" frameborder="0" data-id="https://cn.bing.com"></iframe>
+        </div>
+    </div>
+</div>

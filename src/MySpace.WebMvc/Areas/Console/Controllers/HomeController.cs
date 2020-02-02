@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using MySpace.ApplicationCore.Entities.MenuAggregate;
+﻿using Microsoft.AspNetCore.Mvc;
 using MySpace.ApplicationCore.Interfaces;
+using System.Threading.Tasks;
 
 namespace MySpace.WebMvc.Areas.Console.Controllers
 {
-    [Authorize]
-    [Area("Console")]
-    public class HomeController : Controller
+    public class HomeController : ConsoleBaseController
     {
         private readonly IMenuRepository _menuRepository;
         public HomeController(IMenuRepository menuRepository)

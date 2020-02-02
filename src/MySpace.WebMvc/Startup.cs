@@ -67,6 +67,15 @@ namespace MySpace.WebMvc
             ConfigureIdentityService(services);
 
             services.AddScoped(typeof(IAppLogger<>), typeof(LoggerAdapter<>));
+            services.AddScoped<IMenuRepository, MenuRepository>();
+
+            // AutoMapper
+            var config = new AutoMapper.MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile(new AutoMapperProfileConfiguration());
+            });
+            var mapper = config.CreateMapper();
+            services.AddSingleton(mapper);
         }
 
         /// <summary>
@@ -105,6 +114,7 @@ namespace MySpace.WebMvc
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<AppIdentityDbContext>()
                 .AddSignInManager()
+                //.AddUserManager<UserManagerService>()
                 .AddDefaultTokenProviders();
 
             services.AddAuthentication(o =>
@@ -114,7 +124,7 @@ namespace MySpace.WebMvc
             })
             .AddIdentityCookies(o => { });
 
-            services.AddScoped<IMenuRepository, MenuRepository>();
+            services.AddScoped<UserStoreService>();
         }
         #endregion
 
