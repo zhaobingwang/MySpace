@@ -25,6 +25,11 @@ namespace MySpace.WebMvc.Areas.Console.Controllers
             return View();
         }
 
+        public IActionResult IndexV2()
+        {
+            return View();
+        }
+
         [HttpGet("console/menu/list-page")]
         public async Task<IActionResult> ListPage(int offset, int limit)
         {
