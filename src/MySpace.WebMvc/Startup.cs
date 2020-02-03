@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MySpace.ApplicationCore.Interfaces;
+using MySpace.ApplicationCore.Services;
 using MySpace.Infrastructure.Data;
 using MySpace.Infrastructure.Identity;
 using MySpace.Infrastructure.Logging;

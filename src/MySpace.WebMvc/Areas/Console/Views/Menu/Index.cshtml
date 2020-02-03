@@ -1,7 +1,38 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
+﻿@using MySpace.ApplicationCore.Entities.MenuAggregate
+@using MySpace.ApplicationCore
+@model ListPageResult<Menu>
+
+@section Styles{
+    <link href="~/lib/bootstrap-table/dist/bootstrap-table.css" />
 }
 
-<h1>Index</h1>
+<table id="table"></table>
 
+@section Scripts{
+    <script src="~/lib/bootstrap-table/dist/bootstrap-table.js"></script>
+    <script src="~/lib/bootstrap-table/dist/bootstrap-table-locale-all.js"></script>
+    <script>
+        $('#table').bootstrapTable({
+            url: '/console/menu/list-page',
+            method: 'get',
+            pagination: true,
+            sidePagination: "server",
+            pageNumber: 1,
+            pageSize: 10,
+            pageList: [10, 25, 50, 100],
+            locale: 'zh-cn',
+            virtualScroll: true,
+            columns: [{
+                field: 'id',
+                title: 'id',
+                //visible: false,
+            }, {
+                field: 'name',
+                title: '菜单名'
+            }, {
+                field: 'icon',
+                title: '图标样式(Font Awesome)'
+            }]
+        })
+    </script>
+}

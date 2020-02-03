@@ -38,9 +38,8 @@ namespace MySpace.Infrastructure.Data
             var now = DateTimeOffset.Now;
             return new List<Menu>()
             {
-                new Menu() {Name="测试",Remark="这是一个测试菜单",ParentId=0,IsShow=1,Url="",Icon="fa fa-address-book",CreateTime=now,ModifyTime=now},
-                new Menu() {Name="测试2",Remark="这是一个测试菜单",ParentId=1,IsShow=1,Url="",Icon="fa fa-address-book",CreateTime=now,ModifyTime=now},
-                new Menu() {Name="测试3",Remark="这是一个测试菜单",ParentId=1,IsShow=1,Url="",Icon="fa fa-address-book",CreateTime=now,ModifyTime=now},
+                new Menu() {Name="菜单管理",Remark="菜单管理",ParentId=0,IsShow=1,Url="",Icon="fa fa-bars",CreateTime=now,ModifyTime=now},
+                new Menu() {Name="菜单列表",Remark="菜单列表",ParentId=1,IsShow=1,Url="/console/menu",Icon="",CreateTime=now,ModifyTime=now}
             };
         }
     }
