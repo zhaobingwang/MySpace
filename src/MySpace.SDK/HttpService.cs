@@ -4,7 +4,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MySpace.SDK
+namespace MySpace.SDK.Services
 {
     public class HttpService
     {
