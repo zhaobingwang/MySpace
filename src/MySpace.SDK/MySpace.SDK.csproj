@@ -12,4 +12,10 @@
     <PackageReference Include="aliyun-net-sdk-alidns" Version="2.0.14" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Wexin\Interfaces\" />
+    <Folder Include="Wexin\Models\" />
+    <Folder Include="Wexin\Services\" />
+  </ItemGroup>
+
 </Project>
