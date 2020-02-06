@@ -78,6 +78,34 @@ namespace MySpace.Utilities.Webs
         }
 
         /// <summary>
+        /// 异步HTTP POST请求
+        /// </summary>
+        /// <param name="url">请求地址</param>
+        /// <param name="postData">POST数据</param>
+        /// <param name="charset">编码字符集</param>
+        /// <returns>HTTP响应</returns>
+        public async Task<string> PostAsync(string url, string postData, string charset)
+        {
+            try
+            {
+                var encoding = Encoding.GetEncoding(charset);
+                var client = ConnectionPool.GetClient();
+                var query = url;//new Uri(url).Query;
+                var content = new StringContent(postData, encoding, "application/x-www-form-urlencoded");
+
+                var resp = await client.PostAsync(query, content);
+                var result = await resp.Content.ReadAsStringAsync();
+
+                ConnectionPool.ReturnClient(client);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
         /// 组装普通文本请求参数
         /// </summary>
         /// <param name="parameters"></param>

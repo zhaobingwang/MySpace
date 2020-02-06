@@ -8,18 +8,6 @@ namespace MySpace.SDK.WeChat.Response
     public class GetAccessTokenResponse : WeChatResponse
     {
         /// <summary>
-        /// 错误码
-        /// </summary>
-        [JsonPropertyName("errcode")]
-        public int ErrorCode { get; set; }
-
-        /// <summary>
-        /// 错误信息
-        /// </summary>
-        [JsonPropertyName("errmsg")]
-        public string ErrorMessage { get; set; }
-
-        /// <summary>
         /// 获取到的凭证
         /// </summary>
         [JsonPropertyName("access_token")]

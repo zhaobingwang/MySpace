@@ -11,10 +11,9 @@ namespace MySpace.SDK.WeChat
         string GetApiName();
 
         /// <summary>
-        /// 获取所有的Key-Value形式的文本请求参数字典
-        /// Key:参数名，Value:参数值
+        /// 组装参数
         /// </summary>
-        /// <returns>文本请求参数字典</returns>
-        IDictionary<string, string> GetParameters();
+        /// <returns></returns>
+        string GetParameters();
     }
 }

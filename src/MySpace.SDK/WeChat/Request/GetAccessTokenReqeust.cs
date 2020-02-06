@@ -15,9 +15,9 @@ namespace MySpace.SDK.WeChat.Request
             return "token";
         }
 
-        public IDictionary<string, string> GetParameters()
+        public string GetParameters()
         {
-            throw new NotImplementedException();
+            return string.Empty;
         }
     }
 }

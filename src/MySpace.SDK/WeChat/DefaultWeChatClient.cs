@@ -11,6 +11,7 @@ namespace MySpace.SDK.WeChat
         public const string APP_ID = "appid";
         public const string APP_SECRET = "secret";
         public const string GRANT_TYPE = "grant_type";
+        public const string ACCESS_TOKEN = "access_token";
         private readonly string serverUrl;
         private string charset;
         WebUtils webUtils;
@@ -24,9 +25,14 @@ namespace MySpace.SDK.WeChat
             AppSecret = appSecret;
             webUtils = new WebUtils(serverUrl);
         }
-        public Task<T> Execute<T>(IWeChatRequest<T> request, string accessToken) where T : WeChatResponse
+        public async Task<T> Execute<T>(IWeChatRequest<T> request, string accessToken) where T : WeChatResponse
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(charset))
+                charset = "utf-8";
+            var url = $"{serverUrl}/{request.GetApiName()}?{ACCESS_TOKEN}={accessToken}";
+            var resp = await webUtils.PostAsync(url, request.GetParameters(), charset);
+            var result = JsonSerializer.Deserialize<T>(resp);
+            return result;
         }
 
         public async Task<T> GetAccessToken<T>(IWeChatRequest<T> request, string grantType = null) where T : WeChatResponse
@@ -42,7 +48,6 @@ namespace MySpace.SDK.WeChat
 
             var url = $"{serverUrl}/{request.GetApiName()}";
             var resp = await webUtils.GetAsync(url, txtParams, charset);
-            Console.WriteLine(resp);
             var result = JsonSerializer.Deserialize<T>(resp);
             return result;
         }
