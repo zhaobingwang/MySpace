@@ -14,7 +14,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\WeChat\" />
+    <Folder Include="WeChat\Interfaces\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MySpace.Utilities\MySpace.Utilities.csproj" />
   </ItemGroup>
 
 </Project>

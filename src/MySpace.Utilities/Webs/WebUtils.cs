@@ -10,10 +10,10 @@ namespace MySpace.Utilities.Webs
     /// <summary>
     /// Web客户端
     /// </summary>
-    public sealed class WebClient
+    public sealed class WebUtils
     {
         internal readonly HttpConnectionPool ConnectionPool;
-        public WebClient(string server, int poolSize = 30)
+        public WebUtils(string server, int poolSize = 30)
         {
             ConnectionPool = new HttpConnectionPool(server, poolSize);
         }
@@ -39,7 +39,7 @@ namespace MySpace.Utilities.Webs
 
                 var query = new Uri(url).Query;
                 var client = ConnectionPool.GetClient();
-                var result = await client.GetStringAsync(query);
+                var result = await client.GetStringAsync(url);
                 ConnectionPool.ReturnClient(client);
                 return result;
             }

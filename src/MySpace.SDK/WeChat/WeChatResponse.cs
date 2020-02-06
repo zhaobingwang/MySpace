@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MySpace.SDK.Models.WeChat
+namespace MySpace.SDK.WeChat
 {
     public class WeChatResponse
     {
