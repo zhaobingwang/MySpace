@@ -31,27 +31,20 @@ namespace MySpace.SDK.WeChat
 
         public async Task<T> GetAccessToken<T>(IWeChatRequest<T> request, string grantType = null) where T : WeChatResponse
         {
-            try
-            {
-                if (string.IsNullOrEmpty(charset))
-                    charset = "utf-8";
-                if (string.IsNullOrEmpty(grantType))
-                    grantType = "client_credential";
-                var txtParams = new Dictionary<string, string>();
-                txtParams.Add(GRANT_TYPE, grantType);
-                txtParams.Add(APP_ID, AppId);
-                txtParams.Add(APP_SECRET, AppSecret);
+            if (string.IsNullOrEmpty(charset))
+                charset = "utf-8";
+            if (string.IsNullOrEmpty(grantType))
+                grantType = "client_credential";
+            var txtParams = new Dictionary<string, string>();
+            txtParams.Add(GRANT_TYPE, grantType);
+            txtParams.Add(APP_ID, AppId);
+            txtParams.Add(APP_SECRET, AppSecret);
 
-                var url = $"{serverUrl}/{request.GetApiName()}";
-                var resp = await webUtils.GetAsync(url, txtParams, charset);
-                var result = JsonSerializer.Deserialize<T>(resp);
-                return result;
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
+            var url = $"{serverUrl}/{request.GetApiName()}";
+            var resp = await webUtils.GetAsync(url, txtParams, charset);
+            Console.WriteLine(resp);
+            var result = JsonSerializer.Deserialize<T>(resp);
+            return result;
         }
     }
 }

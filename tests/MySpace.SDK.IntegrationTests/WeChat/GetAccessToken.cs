@@ -14,15 +14,17 @@ namespace MySpace.SDK.IntegrationTests.WeChat
     {
         private string appId;
         private string appSecret;
+        private string serverUrl;
         public GetAccessToken()
         {
             appId = Configuration.GetSection("WeChat:Foundation:AppId").Value;
             appSecret = Configuration.GetSection("WeChat:Foundation:AppSecret").Value;
+            serverUrl = Configuration.GetSection("WeChat:Foundation:ServerUrl").Value;
         }
         [Fact(DisplayName = "获取AccessToken成功")]
         public async Task GetTokenShouldSuccess()
         {
-            IWeChatClient client = new DefaultWeChatClient("https://api.weixin.qq.com/cgi-bin", appId, appSecret);
+            IWeChatClient client = new DefaultWeChatClient(serverUrl, appId, appSecret);
             var request = new GetAccessTokenReqeust();
             var result = await client.GetAccessToken(request);
             Assert.NotNull(result.AccessToken);
