@@ -40,7 +40,7 @@ namespace MySpace.Utilities.Webs
                     BaseAddress = new Uri(_url),
                     Timeout = TimeSpan.FromSeconds(_timeOut)
                 };
-                newClient.DefaultRequestHeaders.Add("User-Agent", "WeChat4Net");
+                newClient.DefaultRequestHeaders.Add("User-Agent", "App4Net");
                 newClient.DefaultRequestHeaders.Add("Connection", "keep-alive");
                 return newClient;
             }

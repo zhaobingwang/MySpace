@@ -37,7 +37,7 @@ namespace MySpace.Utilities.Webs
                         url = $"{url}?{BuildQuery(parameters, charset)}";
                 }
 
-                var query = new Uri(url).Query;
+                //var query = new Uri(url).Query;
                 var client = ConnectionPool.GetClient();
                 var result = await client.GetStringAsync(url);
                 ConnectionPool.ReturnClient(client);
@@ -90,10 +90,10 @@ namespace MySpace.Utilities.Webs
             {
                 var encoding = Encoding.GetEncoding(charset);
                 var client = ConnectionPool.GetClient();
-                var query = url;//new Uri(url).Query;
+                //var query = new Uri(url).Query;
                 var content = new StringContent(postData, encoding, "application/x-www-form-urlencoded");
 
-                var resp = await client.PostAsync(query, content);
+                var resp = await client.PostAsync(url, content);
                 var result = await resp.Content.ReadAsStringAsync();
 
                 ConnectionPool.ReturnClient(client);
