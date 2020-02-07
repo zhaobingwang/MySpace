@@ -10,21 +10,12 @@ using Xunit;
 namespace MySpace.SDK.IntegrationTests.WeChat
 {
     [Trait("微信", "公众号")]
-    public class GetAccessToken : BaseTest<GetAccessToken>
+    public class GetAccessToken : WeChatConfig
     {
-        private string appId;
-        private string appSecret;
-        private string serverUrl;
-        public GetAccessToken()
-        {
-            appId = Configuration.GetSection("WeChat:Foundation:AppId").Value;
-            appSecret = Configuration.GetSection("WeChat:Foundation:AppSecret").Value;
-            serverUrl = Configuration.GetSection("WeChat:Foundation:ServerUrl").Value;
-        }
         [Fact(DisplayName = "获取AccessToken成功")]
         public async Task GetTokenShouldSuccess()
         {
-            IWeChatClient client = new DefaultWeChatClient(serverUrl, appId, appSecret);
+            IWeChatClient client = new DefaultWeChatClient(ServerUrl, AppId, AppSecret);
             var request = new GetAccessTokenReqeust();
             var result = await client.GetAccessToken(request);
             Assert.NotNull(result.AccessToken);

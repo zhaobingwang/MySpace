@@ -12,25 +12,12 @@ using Xunit;
 namespace MySpace.SDK.IntegrationTests.WeChat
 {
     [Trait("微信", "公众号")]
-    public class MessageTemplateSend : BaseTest<MessageTemplateSend>
+    public class MessageTemplateSend : WeChatConfig
     {
-        private string appId;
-        private string appSecret;
-        private string serverUrl;
-        private string toUser;
-        private string templateId;
-        public MessageTemplateSend()
-        {
-            appId = Configuration.GetSection("WeChat:Foundation:AppId").Value;
-            appSecret = Configuration.GetSection("WeChat:Foundation:AppSecret").Value;
-            serverUrl = Configuration.GetSection("WeChat:Foundation:ServerUrl").Value;
-            toUser = Configuration.GetSection("WeChat:TestData:UserId").Value;
-            templateId = Configuration.GetSection("WeChat:TestData:TemplateId").Value;
-        }
         [Fact(DisplayName = "模板消息发生成功")]
         public async Task MessageTemplateSendShouldSuccess()
         {
-            IWeChatClient client = new DefaultWeChatClient(serverUrl, appId, appSecret);
+            IWeChatClient client = new DefaultWeChatClient(ServerUrl, AppId, AppSecret);
 
             var requestToken = new GetAccessTokenReqeust();
             var resultToken = await client.GetAccessToken(requestToken);
@@ -38,8 +25,8 @@ namespace MySpace.SDK.IntegrationTests.WeChat
 
             var request = new MessageTemplateSendRequest();
             var model = new MessageTemplateSendModel<Template>();
-            model.ToUser = toUser;
-            model.TemplateId = templateId;
+            model.ToUser = ToUser;
+            model.TemplateId = TemplateId;
             model.Template = new Template
             {
                 Head = new TemplateContent

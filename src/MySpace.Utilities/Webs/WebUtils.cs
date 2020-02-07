@@ -8,7 +8,7 @@ using System.Web;
 namespace MySpace.Utilities.Webs
 {
     /// <summary>
-    /// Web客户端
+    /// Web工具
     /// </summary>
     public sealed class WebUtils
     {
