@@ -49,7 +49,7 @@ namespace MySpace.WebMvc
             services.AddControllersWithViews();
         }
 
-        public void ConfigureProductionDevelopment(IApplicationBuilder app)
+        public void ConfigureProduction(IApplicationBuilder app)
         {
             CommonConfigure(app);
         }
