@@ -1,0 +1,21 @@
+version: "3"
+services:
+  db:
+    image: mysql/mysql-server:8.0.13
+    command: mysqld --character-set-server=utf8 --collaction-server=utf8_general_ci
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_USER: dev
+      MYSQL_PASSWORD: 123456
+    volumes:
+      - /docker/db/mysql:/docker-entrypoint-initdb.d
+  user-api:
+    build: .
+    container_name: "userapi"
+    ports: 
+      - "10000:80"
+    depends_on: 
+      - db

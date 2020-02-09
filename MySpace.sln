@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8DAF9212-E208-41BD-878C-6AB5CFB56DA4}"
 	ProjectSection(SolutionItems) = preProject
 		docfx.utilities.cmd = docfx.utilities.cmd
+		docker-compose.yml = docker-compose.yml
 		README.md = README.md
 	EndProjectSection
 EndProject
