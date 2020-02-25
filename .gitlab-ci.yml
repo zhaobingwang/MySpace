@@ -1,0 +1,3 @@
+user-api:
+  scripts:
+    - docker-compose up -d --force-recreate
