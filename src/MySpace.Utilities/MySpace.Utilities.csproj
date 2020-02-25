@@ -6,7 +6,9 @@
     <PackageProjectUrl>https://github.com/zhaobingwang/MySpace</PackageProjectUrl>
     <RepositoryUrl>https://github.com/zhaobingwang/MySpace.git</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.0.1</Version>
+    <Version>0.0.2</Version>
+    <PackageIcon></PackageIcon>
+    <PackageIconUrl />
   </PropertyGroup>
 
 </Project>
