@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace MySpace.Utilities.Extensions
+namespace MySpace.Utilities
 {
     public static partial class StringExtensions
     {

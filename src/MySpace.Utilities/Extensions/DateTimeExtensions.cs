@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MySpace.Utilities.Extensions
+namespace MySpace.Utilities
 {
     /// <summary>
     /// 日期时间扩展

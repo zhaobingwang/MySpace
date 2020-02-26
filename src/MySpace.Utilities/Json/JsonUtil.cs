@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.Json;
-using MySpace.Utilities.Extensions;
+﻿using System.Text.Json;
 
 namespace MySpace.Utilities
 {
@@ -11,9 +7,9 @@ namespace MySpace.Utilities
         /// <summary>
         /// 将Json字符串转换为对象
         /// </summary>
-        /// <typeparam name="T">对象类型</typeparam>
+        /// <typeparam name="T">目标对象类型</typeparam>
         /// <param name="json">Json字符串</param>
-        /// <returns></returns>
+        /// <returns>目标对象</returns>
         public static T ToObject<T>(string json)
         {
             if (json.IsNullOrWhiteSpace())
@@ -26,7 +22,7 @@ namespace MySpace.Utilities
         /// 将对象转换为Json字符串
         /// </summary>
         /// <param name="target">目标对象</param>
-        /// <returns></returns>
+        /// <returns>Json字符串</returns>
         public static string ToJson(object target)
         {
             if (target == null)

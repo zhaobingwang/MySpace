@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
-using MySpace.Utilities.Extensions;
 
 namespace MySpace.Utilities.UnitTests.Extensions
 {
