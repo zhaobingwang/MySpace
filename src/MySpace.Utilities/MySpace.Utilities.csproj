@@ -6,9 +6,13 @@
     <PackageProjectUrl>https://github.com/zhaobingwang/MySpace</PackageProjectUrl>
     <RepositoryUrl>https://github.com/zhaobingwang/MySpace.git</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.0.4</Version>
+    <Version>0.0.5</Version>
     <PackageIcon></PackageIcon>
     <PackageIconUrl />
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>.\bin\MySpace.Utilities.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
