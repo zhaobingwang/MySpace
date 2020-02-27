@@ -10,14 +10,15 @@ namespace MySpace.SDK.WeChat.Request
     /// </summary>
     public class GetAccessTokenReqeust : IWeChatRequest<GetAccessTokenResponse>
     {
+        public HttpMethod HttpMethod => HttpMethod.Get;
+
+        public IDictionary<string, string> GetRequestParameters { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public string PostRequestJsonData { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public string GetApiName()
         {
             return "token";
-        }
-
-        public string GetParameters()
-        {
-            return string.Empty;
         }
     }
 }

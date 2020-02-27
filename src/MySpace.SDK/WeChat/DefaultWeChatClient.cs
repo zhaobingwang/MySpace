@@ -30,7 +30,18 @@ namespace MySpace.SDK.WeChat
             if (string.IsNullOrEmpty(charset))
                 charset = "utf-8";
             var url = $"{serverUrl}/{request.GetApiName()}?{ACCESS_TOKEN}={accessToken}";
-            var resp = await webUtils.PostAsync(url, request.GetParameters(), charset);
+
+            // TODO: 区分请求类型
+            string resp = string.Empty;
+            if (request.HttpMethod == HttpMethod.Post)
+            {
+                resp = await webUtils.PostAsync(url, request.PostRequestJsonData, charset);
+            }
+            else
+            {
+                resp = await webUtils.GetAsync(url, request.GetRequestParameters, charset);
+            }
+
             var result = JsonSerializer.Deserialize<T>(resp);
             return result;
         }

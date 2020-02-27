@@ -56,7 +56,7 @@ namespace MySpace.SDK.IntegrationTests.WeChat
                 }
             };
 
-            request.PostJsonData = JsonSerializer.Serialize(model);
+            request.PostRequestJsonData = JsonSerializer.Serialize(model);
             var result = await client.Execute(request, token);
             Assert.True(result.ErrorCode == 0);
         }

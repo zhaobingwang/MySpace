@@ -9,14 +9,14 @@ namespace MySpace.SDK.WeChat.Request
 {
     public class MessageTemplateSendRequest : IWeChatRequest<MessageTemplateSendResponse>
     {
-        public string PostJsonData { get; set; }
+        public HttpMethod HttpMethod => HttpMethod.Post;
+
+        public IDictionary<string, string> GetRequestParameters { get; set; }
+        public string PostRequestJsonData { get; set; }
+
         public string GetApiName()
         {
             return "message/template/send";
-        }
-        public string GetParameters()
-        {
-            return PostJsonData;
         }
     }
 }
