@@ -4,16 +4,16 @@ using System.Text;
 
 namespace MySpace.SDK.WeChat.Request
 {
-    //public class GetUserInfoRequest : IWeChatRequest<WeChatResponse>
-    //{
-    //    public string GetApiName()
-    //    {
-    //        return "user/info";
-    //    }
+    public class GetUserInfoRequest : IWeChatRequest<WeChatResponse>
+    {
+        public HttpMethod HttpMethod => HttpMethod.Get;
 
-    //    public string GetParameters()
-    //    {
-    //        throw new NotImplementedException();
-    //    }
-    //}
+        public IDictionary<string, string> GetRequestParameters { get; set; }
+        public string PostRequestJsonData { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public string GetApiName()
+        {
+            return "user/info";
+        }
+    }
 }
