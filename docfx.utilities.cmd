@@ -6,7 +6,7 @@ cd .docfx\MySpace.Utilities
 %docfxPath% init -q
 %docfxPath% .\docfx_project\docfx.json
 
-docfx metadata ..\..\src\MySpace.Utilities\MySpace.Utilities.csproj
+%docfxPath% metadata ..\..\src\MySpace.Utilities\MySpace.Utilities.csproj
 
 xcopy /d /y "_api\*" "docfx_project\api\"
 
