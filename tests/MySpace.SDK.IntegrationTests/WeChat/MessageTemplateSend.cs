@@ -25,7 +25,7 @@ namespace MySpace.SDK.IntegrationTests.WeChat
 
             var request = new MessageTemplateSendRequest();
             var model = new MessageTemplateSendModel<Template>();
-            model.ToUser = ToUser;
+            model.ToUser = OpenID;
             model.TemplateId = TemplateId;
             model.Template = new Template
             {

@@ -1,4 +1,4 @@
-﻿using MySpace.SDK.WeChat.Response;
+﻿ using MySpace.SDK.WeChat.Response;
 using System;
 using System.Collections.Generic;
 using System.Text;
