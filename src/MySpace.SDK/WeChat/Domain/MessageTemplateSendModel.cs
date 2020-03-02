@@ -10,7 +10,8 @@ namespace MySpace.SDK.WeChat.Domain
     /// 模板消息数据结构
     /// </summary>
     /// <typeparam name="TTemplate">模板 格式参照https://developers.weixin.qq.com/doc/offiaccount/Message_Management/Template_Message_Interface.html#5</typeparam>
-    public class MessageTemplateSendModel<TTemplate> : WeChatObject where TTemplate : class
+    public class MessageTemplateSendModel<TTemplate> : WeChatReqeustParamsObject
+        where TTemplate : class
     {
         [JsonPropertyName("touser")]
         [Required]

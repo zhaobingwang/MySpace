@@ -4,7 +4,7 @@ namespace MySpace.SDK.WeChat
 {
     public interface IWeChatClient
     {
-        Task<T> GetAccessToken<T>(IWeChatRequest<T> request, string grantType = null) where T : WeChatResponse;
-        Task<T> Execute<T>(IWeChatRequest<T> request, string accessToken) where T : WeChatResponse;
+        Task<TResponse> GetAccessToken<TResponse, TParameters>(IWeChatRequest<TResponse, TParameters> request, string grantType = null) where TResponse : WeChatResponse where TParameters : WeChatReqeustParamsObject;
+        Task<TResponse> Execute<TResponse, TParameters>(IWeChatRequest<TResponse, TParameters> request, string accessToken) where TResponse : WeChatResponse where TParameters : WeChatReqeustParamsObject;
     }
 }

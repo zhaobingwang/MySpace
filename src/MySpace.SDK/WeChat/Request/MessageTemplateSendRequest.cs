@@ -7,12 +7,12 @@ using System.Text.Json;
 
 namespace MySpace.SDK.WeChat.Request
 {
-    public class MessageTemplateSendRequest : IWeChatRequest<MessageTemplateSendResponse>
+    public class MessageTemplateSendRequest<TTemplate> : IWeChatRequest<MessageTemplateSendResponse, MessageTemplateSendModel<TTemplate>>
+        where TTemplate : class
     {
         public HttpMethod HttpMethod => HttpMethod.Post;
 
-        public IDictionary<string, string> GetRequestParameters { get; set; }
-        public string PostRequestJsonData { get; set; }
+        public MessageTemplateSendModel<TTemplate> Parameters { get; set; }
 
         public string GetApiName()
         {

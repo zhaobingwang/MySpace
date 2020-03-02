@@ -7,7 +7,7 @@ using System.Text.Json.Serialization;
 
 namespace MySpace.SDK.WeChat.Domain
 {
-    public class GetUserInfoModel : WeChatReqeustParamsObject
+    public class GetAccessTokenModel : WeChatReqeustParamsObject
     {
         [JsonPropertyName("openid")]
         public string OpenID { get; set; }

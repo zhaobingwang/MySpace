@@ -25,33 +25,37 @@ namespace MySpace.SDK.WeChat
             AppSecret = appSecret;
             webUtils = new WebUtils(serverUrl);
         }
-        public async Task<T> Execute<T>(IWeChatRequest<T> request, string accessToken) where T : WeChatResponse
+        public async Task<TResponse> Execute<TResponse, TParameters>(IWeChatRequest<TResponse, TParameters> request, string accessToken)
+            where TResponse : WeChatResponse
+            where TParameters : WeChatReqeustParamsObject
         {
             if (string.IsNullOrEmpty(charset))
                 charset = "utf-8";
             var url = $"{serverUrl}/{request.GetApiName()}?{ACCESS_TOKEN}={accessToken}";
 
-            // TODO: 区分请求类型
             string resp = string.Empty;
             if (request.HttpMethod == HttpMethod.Post)
             {
-                resp = await webUtils.PostAsync(url, request.PostRequestJsonData, charset);
+                resp = await webUtils.PostAsync(url, JsonSerializer.Serialize(request.Parameters), charset);
             }
             else
             {
-                resp = await webUtils.GetAsync(url, request.GetRequestParameters, charset);
+                resp = await webUtils.GetAsync(url, request.Parameters.ToDictionary(), charset);
             }
 
-            var result = JsonSerializer.Deserialize<T>(resp);
+            var result = JsonSerializer.Deserialize<TResponse>(resp);
             return result;
         }
 
-        public async Task<T> GetAccessToken<T>(IWeChatRequest<T> request, string grantType = null) where T : WeChatResponse
+        public async Task<TResponse> GetAccessToken<TResponse, TParameters>(IWeChatRequest<TResponse, TParameters> request, string grantType = null)
+            where TResponse : WeChatResponse
+            where TParameters : WeChatReqeustParamsObject
         {
             if (string.IsNullOrEmpty(charset))
                 charset = "utf-8";
             if (string.IsNullOrEmpty(grantType))
                 grantType = "client_credential";
+
             var txtParams = new Dictionary<string, string>();
             txtParams.Add(GRANT_TYPE, grantType);
             txtParams.Add(APP_ID, AppId);
@@ -59,7 +63,7 @@ namespace MySpace.SDK.WeChat
 
             var url = $"{serverUrl}/{request.GetApiName()}";
             var resp = await webUtils.GetAsync(url, txtParams, charset);
-            var result = JsonSerializer.Deserialize<T>(resp);
+            var result = JsonSerializer.Deserialize<TResponse>(resp);
             return result;
         }
     }

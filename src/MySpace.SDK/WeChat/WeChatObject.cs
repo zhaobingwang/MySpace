@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MySpace.SDK.WeChat
 {
-    public class WeChatObject
+    public class WeChatObject : object
     {
     }
 }

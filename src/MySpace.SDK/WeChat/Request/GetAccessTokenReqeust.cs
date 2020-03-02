@@ -1,4 +1,5 @@
-﻿ using MySpace.SDK.WeChat.Response;
+﻿using MySpace.SDK.WeChat.Domain;
+using MySpace.SDK.WeChat.Response;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,13 +9,11 @@ namespace MySpace.SDK.WeChat.Request
     /// <summary>
     /// 微信公众号 API:获取Access Token
     /// </summary>
-    public class GetAccessTokenReqeust : IWeChatRequest<GetAccessTokenResponse>
+    public class GetAccessTokenReqeust : IWeChatRequest<GetAccessTokenResponse, GetAccessTokenModel>
     {
         public HttpMethod HttpMethod => HttpMethod.Get;
 
-        public IDictionary<string, string> GetRequestParameters { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-        public string PostRequestJsonData { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public GetAccessTokenModel Parameters { get; set; }
 
         public string GetApiName()
         {

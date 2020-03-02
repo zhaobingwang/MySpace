@@ -23,7 +23,7 @@ namespace MySpace.SDK.IntegrationTests.WeChat
             var resultToken = await client.GetAccessToken(requestToken);
             var token = resultToken.AccessToken;
 
-            var request = new MessageTemplateSendRequest();
+            var request = new MessageTemplateSendRequest<Template>();
             var model = new MessageTemplateSendModel<Template>();
             model.ToUser = OpenID;
             model.TemplateId = TemplateId;
@@ -56,7 +56,7 @@ namespace MySpace.SDK.IntegrationTests.WeChat
                 }
             };
 
-            request.PostRequestJsonData = JsonSerializer.Serialize(model);
+            request.Parameters = model;
             var result = await client.Execute(request, token);
             Assert.True(result.ErrorCode == 0);
         }

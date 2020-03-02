@@ -18,8 +18,7 @@ namespace MySpace.SDK.IntegrationTests.WeChat
         {
             GetUserInfoModel model = new GetUserInfoModel
             {
-                openid = OpenID,
-                lang = "zh_CN"
+                OpenID = OpenID
             };
 
             IWeChatClient client = new DefaultWeChatClient(ServerUrl, AppId, AppSecret);
@@ -29,7 +28,7 @@ namespace MySpace.SDK.IntegrationTests.WeChat
             var token = resultToken.AccessToken;
 
             var request = new GetUserInfoRequest();
-            request.GetRequestParameters = model.ToDictionary();
+            request.Parameters = model;
             var result = await client.Execute(request, token);
             Assert.True(result.ErrorCode == 0);
         }

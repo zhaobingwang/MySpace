@@ -2,15 +2,14 @@
 
 namespace MySpace.SDK.WeChat
 {
-    public interface IWeChatRequest<T> where T : WeChatResponse
+    public interface IWeChatRequest<TResponse, TParamaters> where TResponse : WeChatResponse where TParamaters : WeChatObject
     {
         HttpMethod HttpMethod { get; }
 
-
-        // XXX: 待优化 GET和 POST参数
-        IDictionary<string, string> GetRequestParameters { get; set; }
-
-        string PostRequestJsonData { get; set; }
+        /// <summary>
+        /// 请求参数
+        /// </summary>
+        TParamaters Parameters { get; set; }
 
         /// <summary>
         /// 获取接口名称
