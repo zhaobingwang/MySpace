@@ -1,14 +1,9 @@
-﻿using MySpace.SDK.WeChat;
-using MySpace.SDK.WeChat.Domain;
-using MySpace.SDK.WeChat.Request;
-using MySpace.SDK.WeChat.Response;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MySpace.WeChat.OfficialAccounts;
+using MySpace.WeChat.OfficialAccounts.Request;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace MySpace.SDK.IntegrationTests.WeChat
+namespace MySpace.WeChat.IntegrationTests.OfficialAccounts
 {
     [Trait("微信", "公众号")]
     public class GetAccessToken : WeChatConfig
@@ -16,7 +11,7 @@ namespace MySpace.SDK.IntegrationTests.WeChat
         [Fact(DisplayName = "获取AccessToken成功")]
         public async Task GetTokenShouldSuccess()
         {
-            IWeChatClient client = new DefaultWeChatClient(ServerUrl, AppId, AppSecret);
+            IWeChatClient client = new DefaultClient(ServerUrl, AppId, AppSecret);
             var request = new GetAccessTokenReqeust();
             var result = await client.GetAccessToken(request);
 

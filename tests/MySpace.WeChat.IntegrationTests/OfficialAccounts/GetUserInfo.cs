@@ -1,14 +1,10 @@
-﻿using MySpace.SDK.WeChat;
-using MySpace.SDK.WeChat.Domain;
-using MySpace.SDK.WeChat.Request;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.Json;
+﻿using MySpace.WeChat.OfficialAccounts;
+using MySpace.WeChat.OfficialAccounts.Domain;
+using MySpace.WeChat.OfficialAccounts.Request;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace MySpace.SDK.IntegrationTests.WeChat
+namespace MySpace.WeChat.IntegrationTests.OfficialAccounts
 {
     [Trait("微信", "公众号")]
     public class GetUserInfo : WeChatConfig
@@ -21,7 +17,7 @@ namespace MySpace.SDK.IntegrationTests.WeChat
                 OpenID = OpenID
             };
 
-            IWeChatClient client = new DefaultWeChatClient(ServerUrl, AppId, AppSecret);
+            IWeChatClient client = new DefaultClient(ServerUrl, AppId, AppSecret);
 
             var requestToken = new GetAccessTokenReqeust();
             var resultToken = await client.GetAccessToken(requestToken);

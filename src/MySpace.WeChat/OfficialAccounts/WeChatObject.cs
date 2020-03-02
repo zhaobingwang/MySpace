@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MySpace.SDK.WeChat
+namespace MySpace.WeChat.OfficialAccounts
 {
     public class WeChatObject : object
     {

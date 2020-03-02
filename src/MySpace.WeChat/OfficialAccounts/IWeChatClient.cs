@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace MySpace.SDK.WeChat
+namespace MySpace.WeChat.OfficialAccounts
 {
     public interface IWeChatClient
     {

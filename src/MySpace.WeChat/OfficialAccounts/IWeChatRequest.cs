@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MySpace.SDK.WeChat
+namespace MySpace.WeChat.OfficialAccounts
 {
     public interface IWeChatRequest<TResponse, TParamaters> where TResponse : WeChatResponse where TParamaters : WeChatObject
     {

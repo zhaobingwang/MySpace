@@ -1,11 +1,7 @@
-﻿using MySpace.SDK.WeChat.Domain;
-using MySpace.SDK.WeChat.Response;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.Json;
+﻿using MySpace.WeChat.OfficialAccounts.Domain;
+using MySpace.WeChat.OfficialAccounts.Response;
 
-namespace MySpace.SDK.WeChat.Request
+namespace MySpace.WeChat.OfficialAccounts.Request
 {
     public class MessageTemplateSendRequest<TTemplate> : IWeChatRequest<MessageTemplateSendResponse, MessageTemplateSendModel<TTemplate>>
         where TTemplate : class

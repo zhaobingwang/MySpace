@@ -1,4 +1,4 @@
-﻿namespace MySpace.SDK.WeChat
+﻿namespace MySpace.WeChat.OfficialAccounts
 {
     public class WeChatReqeustParamsObject : WeChatObject
     {

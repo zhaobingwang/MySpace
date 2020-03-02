@@ -1,12 +1,13 @@
 ﻿using MySpace.Utilities.Webs;
+using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using System;
 
-namespace MySpace.SDK.WeChat
+namespace MySpace.WeChat.OfficialAccounts
 {
-    public class DefaultWeChatClient : IWeChatClient
+    public class DefaultClient : IWeChatClient
     {
         public const string APP_ID = "appid";
         public const string APP_SECRET = "secret";
@@ -18,7 +19,7 @@ namespace MySpace.SDK.WeChat
 
         public string AppId { get; set; }
         public string AppSecret { get; set; }
-        public DefaultWeChatClient(string serverUrl, string appId, string appSecret)
+        public DefaultClient(string serverUrl, string appId, string appSecret)
         {
             this.serverUrl = serverUrl;
             AppId = appId;

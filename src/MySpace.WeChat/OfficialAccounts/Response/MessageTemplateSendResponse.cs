@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
-namespace MySpace.SDK.WeChat.Response
+namespace MySpace.WeChat.OfficialAccounts.Response
 {
     public class MessageTemplateSendResponse : WeChatResponse
     {

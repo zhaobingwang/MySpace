@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Text.Json.Serialization;
 
-namespace MySpace.SDK.WeChat
+namespace MySpace.WeChat.OfficialAccounts
 {
     public static class Extensions
     {

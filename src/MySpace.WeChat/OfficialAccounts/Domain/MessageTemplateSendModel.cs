@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
-namespace MySpace.SDK.WeChat.Domain
+namespace MySpace.WeChat.OfficialAccounts.Domain
 {
     /// <summary>
     /// 模板消息数据结构

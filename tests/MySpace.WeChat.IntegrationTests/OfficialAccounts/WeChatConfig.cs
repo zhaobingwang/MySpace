@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MySpace.SDK.IntegrationTests.WeChat
+namespace MySpace.WeChat.IntegrationTests.OfficialAccounts
 {
     public class WeChatConfig : BaseTest<WeChatConfig>
     {

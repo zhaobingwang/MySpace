@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
-namespace MySpace.SDK.WeChat.Domain
+namespace MySpace.WeChat.OfficialAccounts.Domain
 {
     public class GetUserInfoModel : WeChatReqeustParamsObject
     {

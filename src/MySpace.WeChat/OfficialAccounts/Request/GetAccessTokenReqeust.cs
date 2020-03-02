@@ -1,10 +1,7 @@
-﻿using MySpace.SDK.WeChat.Domain;
-using MySpace.SDK.WeChat.Response;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MySpace.WeChat.OfficialAccounts.Domain;
+using MySpace.WeChat.OfficialAccounts.Response;
 
-namespace MySpace.SDK.WeChat.Request
+namespace MySpace.WeChat.OfficialAccounts.Request
 {
     /// <summary>
     /// 微信公众号 API:获取Access Token
