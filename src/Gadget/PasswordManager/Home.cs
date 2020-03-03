@@ -22,16 +22,34 @@ namespace PasswordManager
         }
 
         List<AppPassword> AppPasswords = null;
+
+        #region control event
         private async void Home_Load(object sender, EventArgs e)
         {
             await SqliteDbContextSeed();
 
+            await LoadDatas();
+        }
 
+        /// <summary>
+        /// 创建应用密码
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void menuItemCreatePassword_Click(object sender, EventArgs e)
+        {
+            CreateOrEditAppPassword formCreate = new CreateOrEditAppPassword();
+            formCreate.StartPosition = FormStartPosition.CenterParent;
+            formCreate.ShowDialog(this);
+        }
+        #endregion
+
+        internal async Task LoadDatas()
+        {
             using (var db = new SqliteDbContext())
             {
                 AppPasswords = await db.AppPasswords.ToListAsync();
             }
-
             dgvAppPassword.DataSource = AppPasswords;
         }
 
@@ -69,14 +87,14 @@ namespace PasswordManager
             dgvAppPassword.Columns["Password"].FillWeight = 30;
             dgvAppPassword.Columns["CreateTime"].FillWeight = 20;
             dgvAppPassword.Columns["ModifyTime"].FillWeight = 20;
+            dgvAppPassword.Columns["Edit"].FillWeight = 20;
             dgvAppPassword.AutoGenerateColumns = false;
         }
 
-        private void menuItemCreatePassword_Click(object sender, EventArgs e)
+        private void dgvAppPassword_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            CreateOrEditAppPassword createForm = new CreateOrEditAppPassword();
-            createForm.ShowDialog(this);
-            createForm.Dispose();
+            var current = dgvAppPassword[1, e.RowIndex];
+            MessageBox.Show(current.Value.ToString());
         }
     }
 }

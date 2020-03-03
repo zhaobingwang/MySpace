@@ -21,9 +21,8 @@ namespace PasswordManager
         private async void btnSave_Click(object sender, EventArgs e)
         {
             await Save();
-
             Home home = (Home)Owner;
-            home.pan
+            await home.LoadDatas();
             Close();
         }
 
