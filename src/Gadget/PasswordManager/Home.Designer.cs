@@ -29,14 +29,18 @@
         private void InitializeComponent()
         {
             this.dgvAppPassword = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AppName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ModifyTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.mnsMain = new System.Windows.Forms.MenuStrip();
+            this.编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemCreatePassword = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppPassword)).BeginInit();
             this.panel1.SuspendLayout();
+            this.mnsMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvAppPassword
@@ -55,18 +59,6 @@
             this.dgvAppPassword.RowTemplate.Height = 23;
             this.dgvAppPassword.Size = new System.Drawing.Size(774, 362);
             this.dgvAppPassword.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.dgvAppPassword);
-            this.panel1.Location = new System.Drawing.Point(12, 74);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(776, 364);
-            this.panel1.TabIndex = 1;
             // 
             // ID
             // 
@@ -103,18 +95,60 @@
             this.ModifyTime.HeaderText = "最后更新时间";
             this.ModifyTime.Name = "ModifyTime";
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.dgvAppPassword);
+            this.panel1.Location = new System.Drawing.Point(12, 74);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(776, 364);
+            this.panel1.TabIndex = 1;
+            // 
+            // mnsMain
+            // 
+            this.mnsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.编辑ToolStripMenuItem});
+            this.mnsMain.Location = new System.Drawing.Point(0, 0);
+            this.mnsMain.Name = "mnsMain";
+            this.mnsMain.Size = new System.Drawing.Size(800, 25);
+            this.mnsMain.TabIndex = 2;
+            this.mnsMain.Text = "主菜单";
+            // 
+            // 编辑ToolStripMenuItem
+            // 
+            this.编辑ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemCreatePassword});
+            this.编辑ToolStripMenuItem.Name = "编辑ToolStripMenuItem";
+            this.编辑ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.编辑ToolStripMenuItem.Text = "编辑";
+            // 
+            // menuItemCreatePassword
+            // 
+            this.menuItemCreatePassword.Name = "menuItemCreatePassword";
+            this.menuItemCreatePassword.Size = new System.Drawing.Size(180, 22);
+            this.menuItemCreatePassword.Text = "新增";
+            this.menuItemCreatePassword.Click += new System.EventHandler(this.menuItemCreatePassword_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.mnsMain);
+            this.MainMenuStrip = this.mnsMain;
             this.Name = "Home";
             this.Text = "PasswordManager";
             this.Load += new System.EventHandler(this.Home_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppPassword)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.mnsMain.ResumeLayout(false);
+            this.mnsMain.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -127,6 +161,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Password;
         private System.Windows.Forms.DataGridViewTextBoxColumn CreateTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn ModifyTime;
+        private System.Windows.Forms.MenuStrip mnsMain;
+        private System.Windows.Forms.ToolStripMenuItem 编辑ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuItemCreatePassword;
     }
 }
 

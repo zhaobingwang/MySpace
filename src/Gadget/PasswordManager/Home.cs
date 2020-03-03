@@ -17,6 +17,8 @@ namespace PasswordManager
         public Home()
         {
             InitializeComponent();
+
+            InitializeDgvAppPasswordStyle();
         }
 
         List<AppPassword> AppPasswords = null;
@@ -24,19 +26,12 @@ namespace PasswordManager
         {
             await SqliteDbContextSeed();
 
-            dgvAppPassword.ReadOnly = true;
-            dgvAppPassword.Columns["ID"].FillWeight = 10;
-            dgvAppPassword.Columns["AppName"].FillWeight = 20;
-            dgvAppPassword.Columns["Password"].FillWeight = 30;
-            dgvAppPassword.Columns["CreateTime"].FillWeight = 20;
-            dgvAppPassword.Columns["ModifyTime"].FillWeight = 20;
-            dgvAppPassword.AutoGenerateColumns = false;
 
             using (var db = new SqliteDbContext())
             {
                 AppPasswords = await db.AppPasswords.ToListAsync();
             }
-            var appPasswords =
+
             dgvAppPassword.DataSource = AppPasswords;
         }
 
@@ -63,6 +58,25 @@ namespace PasswordManager
                     await db.SaveChangesAsync();
                 }
             }
+        }
+
+        private void InitializeDgvAppPasswordStyle()
+        {
+
+            dgvAppPassword.ReadOnly = true;
+            dgvAppPassword.Columns["ID"].FillWeight = 10;
+            dgvAppPassword.Columns["AppName"].FillWeight = 20;
+            dgvAppPassword.Columns["Password"].FillWeight = 30;
+            dgvAppPassword.Columns["CreateTime"].FillWeight = 20;
+            dgvAppPassword.Columns["ModifyTime"].FillWeight = 20;
+            dgvAppPassword.AutoGenerateColumns = false;
+        }
+
+        private void menuItemCreatePassword_Click(object sender, EventArgs e)
+        {
+            CreateOrEditAppPassword createForm = new CreateOrEditAppPassword();
+            createForm.ShowDialog(this);
+            createForm.Dispose();
         }
     }
 }
