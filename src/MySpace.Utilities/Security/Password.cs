@@ -5,10 +5,19 @@ using System.Text;
 
 namespace MySpace.Utilities.Security
 {
+    /// <summary>
+    /// 密码帮助类
+    /// </summary>
     public static class Password
     {
         private static readonly char[] Punctuations = "!@#$%^&*()_-+=[{]};:>|./?".ToCharArray();
 
+        /// <summary>
+        /// 产生一个密码
+        /// </summary>
+        /// <param name="length">密码长度</param>
+        /// <param name="numberOfNonAlphanumericCharacters">非文数符号个数</param>
+        /// <returns></returns>
         public static string Generate(int length, int numberOfNonAlphanumericCharacters)
         {
             if (length < 1 || length > 128)

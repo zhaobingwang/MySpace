@@ -50,6 +50,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WeChat", "WeChat", "{18148D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySpace.WeChat.IntegrationTests", "tests\MySpace.WeChat.IntegrationTests\MySpace.WeChat.IntegrationTests.csproj", "{B24C7087-861C-45A8-ABC5-4A2ACA654036}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PasswordManager", "src\Gadget\PasswordManager\PasswordManager.csproj", "{551D4291-4709-43D5-8FD0-170A3E0F4B61}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gadget", "Gadget", "{F69CA111-6C58-451A-8E90-A223E41B8DCF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -108,6 +112,10 @@ Global
 		{B24C7087-861C-45A8-ABC5-4A2ACA654036}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B24C7087-861C-45A8-ABC5-4A2ACA654036}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B24C7087-861C-45A8-ABC5-4A2ACA654036}.Release|Any CPU.Build.0 = Release|Any CPU
+		{551D4291-4709-43D5-8FD0-170A3E0F4B61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{551D4291-4709-43D5-8FD0-170A3E0F4B61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{551D4291-4709-43D5-8FD0-170A3E0F4B61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{551D4291-4709-43D5-8FD0-170A3E0F4B61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -130,6 +138,8 @@ Global
 		{17631969-2E3F-4EE4-8C2F-72AAB341436E} = {73EA3EDF-80D1-45FC-A1E8-C4F83CDC7E11}
 		{18148DEB-1174-46DD-A4D1-EB0A6817E08C} = {0B57F095-BBE7-424B-BFD0-59897E44BAAA}
 		{B24C7087-861C-45A8-ABC5-4A2ACA654036} = {18148DEB-1174-46DD-A4D1-EB0A6817E08C}
+		{551D4291-4709-43D5-8FD0-170A3E0F4B61} = {F69CA111-6C58-451A-8E90-A223E41B8DCF}
+		{F69CA111-6C58-451A-8E90-A223E41B8DCF} = {B31C70DA-36C0-4AAF-BEE2-EE7F6CAB97B3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4D172977-1FCF-457F-874E-7C5A07CDE945}

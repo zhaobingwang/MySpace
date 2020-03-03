@@ -1,0 +1,68 @@
+﻿using Microsoft.EntityFrameworkCore;
+using PasswordManager.Data;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace PasswordManager
+{
+    public partial class Home : Form
+    {
+        public Home()
+        {
+            InitializeComponent();
+        }
+
+        List<AppPassword> AppPasswords = null;
+        private async void Home_Load(object sender, EventArgs e)
+        {
+            await SqliteDbContextSeed();
+
+            dgvAppPassword.ReadOnly = true;
+            dgvAppPassword.Columns["ID"].FillWeight = 10;
+            dgvAppPassword.Columns["AppName"].FillWeight = 20;
+            dgvAppPassword.Columns["Password"].FillWeight = 30;
+            dgvAppPassword.Columns["CreateTime"].FillWeight = 20;
+            dgvAppPassword.Columns["ModifyTime"].FillWeight = 20;
+            dgvAppPassword.AutoGenerateColumns = false;
+
+            using (var db = new SqliteDbContext())
+            {
+                AppPasswords = await db.AppPasswords.ToListAsync();
+            }
+            var appPasswords =
+            dgvAppPassword.DataSource = AppPasswords;
+        }
+
+        private async Task SqliteDbContextSeed()
+        {
+            using (var db = new SqliteDbContext())
+            {
+                if (db.AppPasswords.Count() < 1)
+                {
+                    db.AppPasswords.AddRange(new AppPassword
+                    {
+                        AppName = "APP1",
+                        Password = "123",
+                        CreateTime = DateTime.UtcNow,
+                        ModifyTime = DateTime.UtcNow
+                    },
+                    new AppPassword
+                    {
+                        AppName = "APP2",
+                        Password = "456",
+                        CreateTime = DateTime.UtcNow,
+                        ModifyTime = DateTime.UtcNow
+                    });
+                    await db.SaveChangesAsync();
+                }
+            }
+        }
+    }
+}
