@@ -91,10 +91,13 @@ namespace PasswordManager
             dgvAppPassword.AutoGenerateColumns = false;
         }
 
-        private void dgvAppPassword_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvAppPassword_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            var current = dgvAppPassword[1, e.RowIndex];
-            MessageBox.Show(current.Value.ToString());
+            var current = dgvAppPassword[0, e.RowIndex];
+
+            CreateOrEditAppPassword formCreate = new CreateOrEditAppPassword((int)current.Value);
+            formCreate.StartPosition = FormStartPosition.CenterParent;
+            formCreate.ShowDialog(this);
         }
     }
 }

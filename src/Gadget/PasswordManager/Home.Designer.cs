@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.dgvAppPassword = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.mnsMain = new System.Windows.Forms.MenuStrip();
-            this.编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemCreatePassword = new System.Windows.Forms.ToolStripMenuItem();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AppName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ModifyTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.mnsMain = new System.Windows.Forms.MenuStrip();
+            this.编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemCreatePassword = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppPassword)).BeginInit();
             this.panel1.SuspendLayout();
             this.mnsMain.SuspendLayout();
@@ -57,53 +57,13 @@
             this.Edit});
             this.dgvAppPassword.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvAppPassword.Location = new System.Drawing.Point(0, 0);
-            this.dgvAppPassword.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.dgvAppPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvAppPassword.Name = "dgvAppPassword";
             this.dgvAppPassword.RowHeadersWidth = 72;
             this.dgvAppPassword.RowTemplate.Height = 23;
-            this.dgvAppPassword.Size = new System.Drawing.Size(1419, 717);
+            this.dgvAppPassword.Size = new System.Drawing.Size(863, 428);
             this.dgvAppPassword.TabIndex = 0;
-            this.dgvAppPassword.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAppPassword_CellContentClick);
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.dgvAppPassword);
-            this.panel1.Location = new System.Drawing.Point(22, 47);
-            this.panel1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1421, 719);
-            this.panel1.TabIndex = 1;
-            // 
-            // mnsMain
-            // 
-            this.mnsMain.ImageScalingSize = new System.Drawing.Size(28, 28);
-            this.mnsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.编辑ToolStripMenuItem});
-            this.mnsMain.Location = new System.Drawing.Point(0, 0);
-            this.mnsMain.Name = "mnsMain";
-            this.mnsMain.Padding = new System.Windows.Forms.Padding(11, 4, 0, 4);
-            this.mnsMain.Size = new System.Drawing.Size(1467, 42);
-            this.mnsMain.TabIndex = 2;
-            this.mnsMain.Text = "主菜单";
-            // 
-            // 编辑ToolStripMenuItem
-            // 
-            this.编辑ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuItemCreatePassword});
-            this.编辑ToolStripMenuItem.Name = "编辑ToolStripMenuItem";
-            this.编辑ToolStripMenuItem.Size = new System.Drawing.Size(75, 34);
-            this.编辑ToolStripMenuItem.Text = "编辑";
-            // 
-            // menuItemCreatePassword
-            // 
-            this.menuItemCreatePassword.Name = "menuItemCreatePassword";
-            this.menuItemCreatePassword.Size = new System.Drawing.Size(175, 40);
-            this.menuItemCreatePassword.Text = "新增";
-            this.menuItemCreatePassword.Click += new System.EventHandler(this.menuItemCreatePassword_Click);
+            this.dgvAppPassword.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAppPassword_CellMouseDoubleClick);
             // 
             // ID
             // 
@@ -153,15 +113,58 @@
             this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Edit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.dgvAppPassword);
+            this.panel1.Location = new System.Drawing.Point(14, 38);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(865, 430);
+            this.panel1.TabIndex = 1;
+            // 
+            // mnsMain
+            // 
+            this.mnsMain.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.mnsMain.ImageScalingSize = new System.Drawing.Size(28, 28);
+            this.mnsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.编辑ToolStripMenuItem});
+            this.mnsMain.Location = new System.Drawing.Point(0, 0);
+            this.mnsMain.Name = "mnsMain";
+            this.mnsMain.Padding = new System.Windows.Forms.Padding(7, 3, 0, 3);
+            this.mnsMain.Size = new System.Drawing.Size(893, 27);
+            this.mnsMain.TabIndex = 2;
+            this.mnsMain.Text = "主菜单";
+            // 
+            // 编辑ToolStripMenuItem
+            // 
+            this.编辑ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemCreatePassword});
+            this.编辑ToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.编辑ToolStripMenuItem.Name = "编辑ToolStripMenuItem";
+            this.编辑ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.编辑ToolStripMenuItem.Text = "编辑";
+            // 
+            // menuItemCreatePassword
+            // 
+            this.menuItemCreatePassword.Name = "menuItemCreatePassword";
+            this.menuItemCreatePassword.Size = new System.Drawing.Size(180, 22);
+            this.menuItemCreatePassword.Text = "新增";
+            this.menuItemCreatePassword.Click += new System.EventHandler(this.menuItemCreatePassword_Click);
+            // 
             // Home
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1467, 788);
+            this.ClientSize = new System.Drawing.Size(893, 484);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.mnsMain);
+            this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.MainMenuStrip = this.mnsMain;
-            this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Home";
             this.Text = "PasswordManager";
             this.Load += new System.EventHandler(this.Home_Load);
