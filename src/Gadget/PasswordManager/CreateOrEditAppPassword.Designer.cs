@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateOrEditAppPassword));
             this.pnlContent = new System.Windows.Forms.Panel();
+            this.btnRndPassword = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtAppPassword = new System.Windows.Forms.TextBox();
             this.txtAppName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnRndPassword = new System.Windows.Forms.Button();
             this.pnlContent.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,6 +52,18 @@
             this.pnlContent.Name = "pnlContent";
             this.pnlContent.Size = new System.Drawing.Size(334, 176);
             this.pnlContent.TabIndex = 0;
+            // 
+            // btnRndPassword
+            // 
+            this.btnRndPassword.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnRndPassword.Location = new System.Drawing.Point(196, 127);
+            this.btnRndPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnRndPassword.Name = "btnRndPassword";
+            this.btnRndPassword.Size = new System.Drawing.Size(87, 33);
+            this.btnRndPassword.TabIndex = 5;
+            this.btnRndPassword.Text = "随机密码";
+            this.btnRndPassword.UseVisualStyleBackColor = true;
+            this.btnRndPassword.Click += new System.EventHandler(this.btnRndPassword_Click);
             // 
             // btnSave
             // 
@@ -102,18 +115,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "应用名：";
             // 
-            // btnRndPassword
-            // 
-            this.btnRndPassword.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnRndPassword.Location = new System.Drawing.Point(196, 127);
-            this.btnRndPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnRndPassword.Name = "btnRndPassword";
-            this.btnRndPassword.Size = new System.Drawing.Size(87, 33);
-            this.btnRndPassword.TabIndex = 5;
-            this.btnRndPassword.Text = "随机密码";
-            this.btnRndPassword.UseVisualStyleBackColor = true;
-            this.btnRndPassword.Click += new System.EventHandler(this.btnRndPassword_Click);
-            // 
             // CreateOrEditAppPassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -121,6 +122,7 @@
             this.ClientSize = new System.Drawing.Size(357, 190);
             this.Controls.Add(this.pnlContent);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "CreateOrEditAppPassword";
             this.Text = "新增";

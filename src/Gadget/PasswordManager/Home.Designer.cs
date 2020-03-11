@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.dgvAppPassword = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AppName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -151,7 +152,7 @@
             // menuItemCreatePassword
             // 
             this.menuItemCreatePassword.Name = "menuItemCreatePassword";
-            this.menuItemCreatePassword.Size = new System.Drawing.Size(180, 22);
+            this.menuItemCreatePassword.Size = new System.Drawing.Size(100, 22);
             this.menuItemCreatePassword.Text = "新增";
             this.menuItemCreatePassword.Click += new System.EventHandler(this.menuItemCreatePassword_Click);
             // 
@@ -163,6 +164,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.mnsMain);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mnsMain;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Home";
