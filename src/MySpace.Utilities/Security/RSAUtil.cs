@@ -27,6 +27,23 @@ namespace MySpace.Utilities.Security
         }
 
         /// <summary>
+        /// 生成RSA2密钥(PKCS1)
+        /// 返回值中Key为公钥，Value为私钥
+        /// </summary>
+        /// <returns></returns>
+        public static KeyValuePair<string, string> GenerateRSA2KeysWithPKCS1()
+        {
+            IAsymmetricCipherKeyPairGenerator keyPairGenerator = GeneratorUtilities.GetKeyPairGenerator("RSA");
+            keyPairGenerator.Init(new KeyGenerationParameters(new SecureRandom(), 2048));
+            var keyPair = keyPairGenerator.GenerateKeyPair();
+
+            string publicKey = GenetatePKCSPublicKey(keyPair);
+            string privateKey = GenetatePKCS1PrivateKey(keyPair);
+
+            return new KeyValuePair<string, string>(publicKey, privateKey);
+        }
+
+        /// <summary>
         /// 生成RSA2密钥(PKCS8)
         /// 返回值中Key为公钥，Value为私钥
         /// </summary>
@@ -37,7 +54,7 @@ namespace MySpace.Utilities.Security
             keyPairGenerator.Init(new KeyGenerationParameters(new SecureRandom(), 2048));
             var keyPair = keyPairGenerator.GenerateKeyPair();
 
-            string publicKey = GenetatePKCS8PublicKey(keyPair);
+            string publicKey = GenetatePKCSPublicKey(keyPair);
             string privateKey = GenetatePKCS8PrivateKey(keyPair);
 
             return new KeyValuePair<string, string>(publicKey, privateKey);
@@ -45,11 +62,11 @@ namespace MySpace.Utilities.Security
 
         #region Private Function
         /// <summary>
-        /// 生成PKCS8公钥
+        /// 生成PKCS公钥
         /// </summary>
         /// <param name="asymmetricCipherKeyPair"></param>
         /// <returns></returns>
-        private static string GenetatePKCS8PublicKey(AsymmetricCipherKeyPair asymmetricCipherKeyPair)
+        private static string GenetatePKCSPublicKey(AsymmetricCipherKeyPair asymmetricCipherKeyPair)
         {
             using (StringWriter stringWriter = new StringWriter())
             {
@@ -73,6 +90,22 @@ namespace MySpace.Utilities.Security
                 Pkcs8Generator pkcs8Generator = new Pkcs8Generator(asymmetricCipherKeyPair.Private);
 
                 pemWriter.WriteObject(pkcs8Generator);
+                pemWriter.Writer.Close();
+                return stringWriter.ToString();
+            }
+        }
+
+        /// <summary>
+        /// 生成PKSC1私钥
+        /// </summary>
+        /// <param name="asymmetricCipherKeyPair"></param>
+        /// <returns></returns>
+        private static string GenetatePKCS1PrivateKey(AsymmetricCipherKeyPair asymmetricCipherKeyPair)
+        {
+            using (StringWriter stringWriter = new StringWriter())
+            {
+                PemWriter pemWriter = new PemWriter(stringWriter);
+                pemWriter.WriteObject(asymmetricCipherKeyPair.Private);
                 pemWriter.Writer.Close();
                 return stringWriter.ToString();
             }

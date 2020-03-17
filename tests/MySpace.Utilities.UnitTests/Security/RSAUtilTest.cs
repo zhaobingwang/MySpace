@@ -23,5 +23,13 @@ namespace MySpace.Utilities.UnitTests.Security
             Assert.NotNull(result.Key);
             Assert.NotNull(result.Value);
         }
+
+        [Fact(DisplayName = "生成Pkcs1Key")]
+        public void GeneratePkcs1KeySuccess()
+        {
+            var result = RSAUtil.GenerateRSA2KeysWithPKCS1();
+            Assert.NotNull(result.Key);
+            Assert.NotNull(result.Value);
+        }
     }
 }
