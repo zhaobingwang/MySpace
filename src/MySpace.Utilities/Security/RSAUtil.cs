@@ -67,6 +67,7 @@ namespace MySpace.Utilities.Security
         /// <returns></returns>
         public static string ConvertPKCS1ToPKCS8(string privateKey)
         {
+            privateKey = $"-----BEGIN RSA PRIVATE KEY-----\n{privateKey}\n-----END RSA PRIVATE KEY-----";
             PemReader pemReader = new PemReader(new StringReader(privateKey));
 
             AsymmetricCipherKeyPair keyPair = pemReader.ReadObject() as AsymmetricCipherKeyPair;
