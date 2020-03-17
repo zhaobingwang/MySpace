@@ -60,6 +60,26 @@ namespace MySpace.Utilities.Security
             return new KeyValuePair<string, string>(publicKey, privateKey);
         }
 
+        /// <summary>
+        /// 将PKCS1私钥转为PKCS8
+        /// </summary>
+        /// <param name="privateKey"></param>
+        /// <returns></returns>
+        public static string ConvertPKCS1ToPKCS8(string privateKey)
+        {
+            PemReader pemReader = new PemReader(new StringReader(privateKey));
+
+            AsymmetricCipherKeyPair keyPair = pemReader.ReadObject() as AsymmetricCipherKeyPair;
+            using (StringWriter sw = new StringWriter())
+            {
+                PemWriter pemWriter = new PemWriter(sw);
+                Pkcs8Generator pkcs8Generator = new Pkcs8Generator(keyPair.Private);
+                pemWriter.WriteObject(pkcs8Generator);
+                pemWriter.Writer.Close();
+                return sw.ToString();
+            }
+        }
+
         #region Private Function
         /// <summary>
         /// 生成PKCS公钥
