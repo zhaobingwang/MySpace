@@ -1,15 +1,10 @@
 ﻿using PasswordManager.Data;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySpace.Utilities.Security;
-using System.Security.Cryptography;
+using System.Configuration;
 
 namespace PasswordManager
 {
@@ -17,6 +12,8 @@ namespace PasswordManager
     {
         private int _appPwdId;
         private AppPassword CurrentSelectAppPwd;
+        private string _publicKey = string.Empty;
+        private string _privateKey = string.Empty;
         public CreateOrEditAppPassword()
         {
             InitializeComponent();
@@ -25,6 +22,8 @@ namespace PasswordManager
         public CreateOrEditAppPassword(int appPwdId) : this()
         {
             _appPwdId = appPwdId;
+            _publicKey = ConfigurationManager.AppSettings["publicKey"];
+            _privateKey = ConfigurationManager.AppSettings["privateKey"];
         }
 
         private void CreateOrEditAppPassword_Load(object sender, EventArgs e)
@@ -35,7 +34,7 @@ namespace PasswordManager
                 {
                     CurrentSelectAppPwd = db.AppPasswords.FirstOrDefault(p => p.ID == _appPwdId);
                     txtAppName.Text = CurrentSelectAppPwd.AppName;
-                    txtAppPassword.Text = CurrentSelectAppPwd.Password;
+                    txtAppPassword.Text = RSAUtil.Decrypt(CurrentSelectAppPwd.Password, _privateKey);
                 }
             }
         }
@@ -50,7 +49,7 @@ namespace PasswordManager
         private async Task<bool> Save()
         {
             var appName = txtAppName.Text.Trim();
-            var appPassword = txtAppPassword.Text.Trim();
+            var appPassword = RSAUtil.Encrypt(txtAppPassword.Text.Trim(), _publicKey);
 
             using (var db = new SqliteDbContext())
             {

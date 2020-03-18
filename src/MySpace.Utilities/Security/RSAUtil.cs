@@ -135,7 +135,7 @@ namespace MySpace.Utilities.Security
 
         #endregion
 
-        #region Encryptiton Function
+        #region Encryptiton & Decryptiton Function
         /// <summary>
         /// RSA OpenSSL 公钥加密
         /// </summary>
@@ -160,7 +160,7 @@ namespace MySpace.Utilities.Security
         public static string Decrypt(string cipher, string privateKey)
         {
             var rsa = CreateRsaFromPrivateKey(privateKey);
-            var cipherBytes = System.Convert.FromBase64String(cipher);
+            var cipherBytes = Convert.FromBase64String(cipher);
             var plainTextBytes = rsa.Decrypt(cipherBytes, RSAEncryptionPadding.Pkcs1);
             var plainText = Encoding.UTF8.GetString(plainTextBytes);
             return plainText;
