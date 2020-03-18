@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.dgvAppPassword = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -37,12 +38,17 @@
             this.ModifyTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.mnsMain = new System.Windows.Forms.MenuStrip();
+            this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemCreatePassword = new System.Windows.Forms.ToolStripMenuItem();
+            this.notifyIconDefault = new System.Windows.Forms.NotifyIcon(this.components);
+            this.notifyMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ShowMainWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppPassword)).BeginInit();
             this.panel1.SuspendLayout();
-            this.mnsMain.SuspendLayout();
+            this.mainMenu.SuspendLayout();
+            this.notifyMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvAppPassword
@@ -127,53 +133,88 @@
             this.panel1.Size = new System.Drawing.Size(865, 430);
             this.panel1.TabIndex = 1;
             // 
-            // mnsMain
+            // mainMenu
             // 
-            this.mnsMain.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.mnsMain.ImageScalingSize = new System.Drawing.Size(28, 28);
-            this.mnsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mainMenu.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.mainMenu.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.mainMenu.ImageScalingSize = new System.Drawing.Size(28, 28);
+            this.mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.编辑ToolStripMenuItem});
-            this.mnsMain.Location = new System.Drawing.Point(0, 0);
-            this.mnsMain.Name = "mnsMain";
-            this.mnsMain.Padding = new System.Windows.Forms.Padding(7, 3, 0, 3);
-            this.mnsMain.Size = new System.Drawing.Size(893, 27);
-            this.mnsMain.TabIndex = 2;
-            this.mnsMain.Text = "主菜单";
+            this.mainMenu.Location = new System.Drawing.Point(0, 0);
+            this.mainMenu.Name = "mainMenu";
+            this.mainMenu.Padding = new System.Windows.Forms.Padding(7, 3, 0, 3);
+            this.mainMenu.Size = new System.Drawing.Size(893, 38);
+            this.mainMenu.TabIndex = 2;
+            this.mainMenu.Text = "主菜单";
             // 
             // 编辑ToolStripMenuItem
             // 
             this.编辑ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuItemCreatePassword});
-            this.编辑ToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.编辑ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.编辑ToolStripMenuItem.Name = "编辑ToolStripMenuItem";
-            this.编辑ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.编辑ToolStripMenuItem.Size = new System.Drawing.Size(72, 32);
             this.编辑ToolStripMenuItem.Text = "编辑";
             // 
             // menuItemCreatePassword
             // 
             this.menuItemCreatePassword.Name = "menuItemCreatePassword";
-            this.menuItemCreatePassword.Size = new System.Drawing.Size(100, 22);
+            this.menuItemCreatePassword.Size = new System.Drawing.Size(171, 40);
             this.menuItemCreatePassword.Text = "新增";
             this.menuItemCreatePassword.Click += new System.EventHandler(this.menuItemCreatePassword_Click);
             // 
+            // notifyIconDefault
+            // 
+            this.notifyIconDefault.ContextMenuStrip = this.notifyMenu;
+            this.notifyIconDefault.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIconDefault.Icon")));
+            this.notifyIconDefault.Text = "PasswordManager";
+            this.notifyIconDefault.Visible = true;
+            this.notifyIconDefault.DoubleClick += new System.EventHandler(this.notifyIconDefault_DoubleClick);
+            // 
+            // notifyMenu
+            // 
+            this.notifyMenu.ImageScalingSize = new System.Drawing.Size(28, 28);
+            this.notifyMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ShowMainWindowToolStripMenuItem,
+            this.ExitToolStripMenuItem});
+            this.notifyMenu.Name = "notifyMenu";
+            this.notifyMenu.Size = new System.Drawing.Size(272, 76);
+            // 
+            // ShowMainWindowToolStripMenuItem
+            // 
+            this.ShowMainWindowToolStripMenuItem.Name = "ShowMainWindowToolStripMenuItem";
+            this.ShowMainWindowToolStripMenuItem.Size = new System.Drawing.Size(271, 36);
+            this.ShowMainWindowToolStripMenuItem.Text = "Show Main Window";
+            this.ShowMainWindowToolStripMenuItem.Click += new System.EventHandler(this.ShowMainWindowToolStripMenuItem_Click);
+            // 
+            // ExitToolStripMenuItem
+            // 
+            this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(271, 36);
+            this.ExitToolStripMenuItem.Text = "Exit";
+            this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
+            // 
             // Home
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(893, 484);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.mnsMain);
-            this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Controls.Add(this.mainMenu);
+            this.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.mnsMain;
+            this.MainMenuStrip = this.mainMenu;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Home";
             this.Text = "PasswordManager";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Home_FormClosing);
             this.Load += new System.EventHandler(this.Home_Load);
+            this.SizeChanged += new System.EventHandler(this.Home_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppPassword)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.mnsMain.ResumeLayout(false);
-            this.mnsMain.PerformLayout();
+            this.mainMenu.ResumeLayout(false);
+            this.mainMenu.PerformLayout();
+            this.notifyMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -183,7 +224,7 @@
 
         private System.Windows.Forms.DataGridView dgvAppPassword;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.MenuStrip mnsMain;
+        private System.Windows.Forms.MenuStrip mainMenu;
         private System.Windows.Forms.ToolStripMenuItem 编辑ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuItemCreatePassword;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
@@ -192,6 +233,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CreateTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn ModifyTime;
         private System.Windows.Forms.DataGridViewButtonColumn Edit;
+        private System.Windows.Forms.NotifyIcon notifyIconDefault;
+        private System.Windows.Forms.ContextMenuStrip notifyMenu;
+        private System.Windows.Forms.ToolStripMenuItem ShowMainWindowToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ExitToolStripMenuItem;
     }
 }
 
