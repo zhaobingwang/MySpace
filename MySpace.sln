@@ -60,6 +60,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BouncyCastle", "tp\BouncyCa
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bot", "Bot", "{3323E5BF-92CF-45E1-873B-CD05EC110BFC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySpace.Utilities.ConsoleTests", "tests\MySpace.Utilities.ConsoleTests\MySpace.Utilities.ConsoleTests.csproj", "{6E26381B-E39A-4AF9-B2A5-BC8E3A0C733A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -126,6 +128,10 @@ Global
 		{C902D527-41EA-4540-B13D-5889EDB27B8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C902D527-41EA-4540-B13D-5889EDB27B8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C902D527-41EA-4540-B13D-5889EDB27B8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E26381B-E39A-4AF9-B2A5-BC8E3A0C733A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E26381B-E39A-4AF9-B2A5-BC8E3A0C733A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E26381B-E39A-4AF9-B2A5-BC8E3A0C733A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E26381B-E39A-4AF9-B2A5-BC8E3A0C733A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -152,6 +158,7 @@ Global
 		{F69CA111-6C58-451A-8E90-A223E41B8DCF} = {B31C70DA-36C0-4AAF-BEE2-EE7F6CAB97B3}
 		{C902D527-41EA-4540-B13D-5889EDB27B8C} = {573689DD-D153-4F2A-AEE5-23807BD72584}
 		{3323E5BF-92CF-45E1-873B-CD05EC110BFC} = {B31C70DA-36C0-4AAF-BEE2-EE7F6CAB97B3}
+		{6E26381B-E39A-4AF9-B2A5-BC8E3A0C733A} = {0B57F095-BBE7-424B-BFD0-59897E44BAAA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4D172977-1FCF-457F-874E-7C5A07CDE945}
