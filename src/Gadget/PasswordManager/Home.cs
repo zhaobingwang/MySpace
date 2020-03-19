@@ -52,10 +52,10 @@ namespace PasswordManager
             {
                 message = message.Substring(0, message.Length - 1);
                 message += $"等应用的密码已超过{MaxAppPasswordUseDay}天";
-            }
 
-            notifyIconDefault.Visible = true;
-            notifyIconDefault.ShowBalloonTip(3000, "同一密码使用时间过长提醒", message, ToolTipIcon.Warning);
+                notifyIconDefault.Visible = true;
+                notifyIconDefault.ShowBalloonTip(3000, "同一密码使用时间过长提醒", message, ToolTipIcon.Warning);
+            }
         }
 
         /// <summary>
